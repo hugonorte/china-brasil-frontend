@@ -1,0 +1,82 @@
+name: Deploy SSG to A2 Hosting
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Ambiente de destino'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    name: Build & Deploy (${{ github.ref_name }})
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Generate Static Site (SSG)
+        run: pnpm run generate
+
+      - name: Set Deployment Target Directory
+        id: set-target
+        run: |
+          if [ "${{ github.ref_name }}" = "main" ] || [ "${{ github.event.inputs.target }}" = "production" ]; then
+            echo "target_dir=/home/${{ secrets.SSH_USER }}/public_html/" >> $GITHUB_OUTPUT
+            echo "environment=production" >> $GITHUB_OUTPUT
+          else
+            echo "target_dir=/home/${{ secrets.SSH_USER }}/staging.chinabrasil.com/" >> $GITHUB_OUTPUT
+            echo "environment=staging" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Setup SSH Agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy via Rsync over SSH
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          TARGET_DIR: ${{ steps.set-target.outputs.target_dir }}
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -p "$SSH_PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts
+
+          # Sincroniza apenas os arquivos estáticos, preservando arquivos vitais do servidor
+          rsync -avz --delete \
+            --exclude '.htaccess' \
+            --exclude 'api/' \
+            --exclude 'cgi-bin/' \
+            --exclude '.well-known/' \
+            -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=accept-new" \
+            .output/public/ \
+            "$SSH_USER@$SSH_HOST:$TARGET_DIR"

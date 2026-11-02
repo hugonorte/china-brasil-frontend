@@ -1,0 +1,60 @@
+// Tipografia base — aplica a escala definida em abstracts/_typography.scss
+@use '../abstracts' as *;
+
+html {
+  font-family: $font-body;
+  font-size: 100%; // 1rem = 16px, respeita preferência de zoom do usuário
+}
+
+body {
+  font-size: $font-size-body-md;
+  font-weight: $weight-regular;
+  color: $color-body-text;
+  background-color: $color-page-background;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-display;
+  color: $color-heading-text;
+  font-weight: $weight-medium;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: $font-size-display-lg;
+}
+
+h2 {
+  font-size: $font-size-heading-xl;
+}
+
+h3 {
+  font-size: $font-size-heading-lg;
+}
+
+h4 {
+  font-size: $font-size-heading-md;
+  font-weight: $weight-semibold;
+}
+
+p {
+  max-width: $text-width;
+}
+
+small,
+.text-caption {
+  font-size: $font-size-caption;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: $weight-semibold;
+  color: $gold-700;
+}
+
+.text-muted {
+  color: $color-muted-text;
+}

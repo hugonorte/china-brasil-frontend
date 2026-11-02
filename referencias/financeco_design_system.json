@@ -1,0 +1,646 @@
+{
+  "meta": {
+    "name": "FinanceCo Inspired Landing Page Design System",
+    "version": "1.0.0",
+    "language": "en-US",
+    "purpose": "Base specification for building a premium financial consulting landing page inspired by the provided visual reference.",
+    "design_direction": [
+      "premium financial services",
+      "editorial and trustworthy",
+      "clean corporate layout",
+      "high contrast navy and warm gold palette",
+      "generous whitespace",
+      "rounded cards",
+      "professional photography",
+      "conversion-oriented sections"
+    ],
+    "implementation_notes": {
+      "recommended_framework": "Nuxt 4 or Vue 3",
+      "recommended_css": "SCSS modules or Tailwind CSS",
+      "responsive_strategy": "mobile-first",
+      "accessibility_target": "WCAG 2.2 AA",
+      "image_strategy": "optimized WebP/AVIF with responsive sources and lazy loading below the fold"
+    }
+  },
+  "brand": {
+    "placeholder_name": "FINANCECO",
+    "tagline": "Plan Today. Prosper Tomorrow.",
+    "brand_personality": [
+      "trustworthy",
+      "strategic",
+      "calm",
+      "intelligent",
+      "premium",
+      "human"
+    ],
+    "visual_keywords": [
+      "financial clarity",
+      "long-term confidence",
+      "wealth management",
+      "personalized strategy",
+      "institutional credibility"
+    ]
+  },
+  "design_tokens": {
+    "colors": {
+      "primary": {
+        "navy_950": "#071B33",
+        "navy_900": "#0B2340",
+        "navy_800": "#123454",
+        "navy_700": "#1D4668"
+      },
+      "secondary": {
+        "gold_700": "#A77A3A",
+        "gold_600": "#B88A4A",
+        "gold_500": "#C9A56A",
+        "gold_300": "#E6D2AD"
+      },
+      "neutral": {
+        "white": "#FFFFFF",
+        "off_white": "#FAFAF8",
+        "surface": "#F5F6F7",
+        "surface_alt": "#EEF1F3",
+        "border": "#E1E4E8",
+        "text": "#26313D",
+        "text_muted": "#6F7882",
+        "text_light": "#A2A9B1"
+      },
+      "semantic": {
+        "success": "#2E8B70",
+        "warning": "#C58A35",
+        "error": "#B84A4A",
+        "info": "#3E7298"
+      },
+      "usage": {
+        "page_background": "neutral.off_white",
+        "primary_text": "primary.navy_950",
+        "body_text": "neutral.text",
+        "muted_text": "neutral.text_muted",
+        "primary_action": "primary.navy_900",
+        "secondary_action": "secondary.gold_600",
+        "highlight": "secondary.gold_500",
+        "dark_section": "primary.navy_950"
+      }
+    },
+    "typography": {
+      "font_families": {
+        "display": "Cormorant Garamond, Georgia, serif",
+        "body": "Inter, Helvetica Neue, Arial, sans-serif",
+        "ui": "Inter, Helvetica Neue, Arial, sans-serif"
+      },
+      "weights": {
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700
+      },
+      "scale": {
+        "display_xl": {
+          "font_size": "clamp(2.75rem, 5vw, 5.25rem)",
+          "line_height": 0.98,
+          "letter_spacing": "-0.045em",
+          "weight": 400
+        },
+        "display_lg": {
+          "font_size": "clamp(2.25rem, 4vw, 4rem)",
+          "line_height": 1.05,
+          "letter_spacing": "-0.035em",
+          "weight": 400
+        },
+        "heading_xl": {
+          "font_size": "clamp(2rem, 3vw, 3rem)",
+          "line_height": 1.1,
+          "letter_spacing": "-0.025em",
+          "weight": 400
+        },
+        "heading_lg": {
+          "font_size": "clamp(1.6rem, 2.5vw, 2.25rem)",
+          "line_height": 1.15,
+          "letter_spacing": "-0.02em",
+          "weight": 400
+        },
+        "heading_md": {
+          "font_size": "1.35rem",
+          "line_height": 1.25,
+          "letter_spacing": "-0.01em",
+          "weight": 500
+        },
+        "body_lg": {
+          "font_size": "1.125rem",
+          "line_height": 1.65,
+          "weight": 400
+        },
+        "body_md": {
+          "font_size": "1rem",
+          "line_height": 1.6,
+          "weight": 400
+        },
+        "body_sm": {
+          "font_size": "0.875rem",
+          "line_height": 1.5,
+          "weight": 400
+        },
+        "caption": {
+          "font_size": "0.7rem",
+          "line_height": 1.4,
+          "letter_spacing": "0.13em",
+          "text_transform": "uppercase",
+          "weight": 600
+        },
+        "button": {
+          "font_size": "0.75rem",
+          "line_height": 1,
+          "letter_spacing": "0.08em",
+          "text_transform": "uppercase",
+          "weight": 600
+        }
+      }
+    },
+    "spacing": {
+      "base_unit": 4,
+      "values": {
+        "1": "4px",
+        "2": "8px",
+        "3": "12px",
+        "4": "16px",
+        "5": "20px",
+        "6": "24px",
+        "8": "32px",
+        "10": "40px",
+        "12": "48px",
+        "16": "64px",
+        "20": "80px",
+        "24": "96px",
+        "32": "128px"
+      },
+      "section_padding": {
+        "desktop": "96px 0",
+        "tablet": "72px 0",
+        "mobile": "56px 0"
+      }
+    },
+    "layout": {
+      "max_width": "1280px",
+      "content_width": "1180px",
+      "text_width": "620px",
+      "grid_columns": 12,
+      "gutter": {
+        "desktop": "24px",
+        "tablet": "20px",
+        "mobile": "16px"
+      },
+      "breakpoints": {
+        "sm": "480px",
+        "md": "768px",
+        "lg": "1024px",
+        "xl": "1280px",
+        "2xl": "1440px"
+      }
+    },
+    "radii": {
+      "none": "0",
+      "sm": "4px",
+      "md": "8px",
+      "lg": "14px",
+      "xl": "20px",
+      "2xl": "28px",
+      "pill": "999px"
+    },
+    "borders": {
+      "subtle": "1px solid #E1E4E8",
+      "gold": "1px solid #C9A56A",
+      "dark": "1px solid rgba(255,255,255,0.2)"
+    },
+    "shadows": {
+      "none": "none",
+      "soft": "0 8px 30px rgba(7, 27, 51, 0.06)",
+      "card": "0 14px 40px rgba(7, 27, 51, 0.08)",
+      "floating": "0 20px 60px rgba(7, 27, 51, 0.14)"
+    },
+    "motion": {
+      "duration_fast": "150ms",
+      "duration_normal": "250ms",
+      "duration_slow": "450ms",
+      "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+      "principles": [
+        "Use subtle entrance transitions.",
+        "Avoid excessive parallax or distracting motion.",
+        "Respect prefers-reduced-motion.",
+        "Use hover elevation and color changes sparingly."
+      ]
+    }
+  },
+  "components": {
+    "logo": {
+      "structure": "geometric financial mark plus uppercase wordmark and small tagline",
+      "variants": [
+        "dark",
+        "light",
+        "monochrome"
+      ],
+      "minimum_width": "140px",
+      "clear_space": "0.5x logo height"
+    },
+    "navigation": {
+      "height": {
+        "desktop": "84px",
+        "mobile": "72px"
+      },
+      "background": "transparent over hero or neutral.white",
+      "items": [
+        "Home",
+        "About Us",
+        "Services",
+        "Resources",
+        "Blog",
+        "Contact"
+      ],
+      "primary_cta": "Book a Consultation",
+      "behavior": [
+        "sticky after scrolling",
+        "mobile drawer below lg breakpoint",
+        "active item uses navy text and gold underline",
+        "dropdown items include visible keyboard focus"
+      ]
+    },
+    "buttons": {
+      "primary": {
+        "background": "primary.navy_900",
+        "text": "neutral.white",
+        "border": "none",
+        "radius": "md",
+        "height": "48px",
+        "padding": "0 24px",
+        "hover": "primary.navy_800",
+        "icon_position": "right"
+      },
+      "secondary": {
+        "background": "transparent",
+        "text": "primary.navy_900",
+        "border": "1px solid primary.navy_900",
+        "radius": "md",
+        "height": "48px",
+        "padding": "0 24px",
+        "hover": "primary.navy_900 with white text"
+      },
+      "gold": {
+        "background": "secondary.gold_600",
+        "text": "neutral.white",
+        "border": "none",
+        "radius": "md",
+        "height": "48px",
+        "padding": "0 24px",
+        "hover": "secondary.gold_700"
+      },
+      "text_link": {
+        "background": "transparent",
+        "text": "primary.navy_900",
+        "underline": "on hover",
+        "icon": "arrow-right"
+      }
+    },
+    "section_heading": {
+      "eyebrow": {
+        "style": "caption",
+        "color": "secondary.gold_700"
+      },
+      "title": {
+        "font": "typography.display",
+        "color": "primary.navy_950"
+      },
+      "description": {
+        "max_width": "620px",
+        "color": "neutral.text_muted"
+      },
+      "alignment_variants": [
+        "left",
+        "center"
+      ]
+    },
+    "service_card": {
+      "background": "neutral.white",
+      "border": "subtle",
+      "radius": "lg",
+      "padding": "28px 22px",
+      "icon": {
+        "style": "thin-line financial icon",
+        "color": "secondary.gold_600",
+        "size": "40px"
+      },
+      "title": "heading_md",
+      "description": "body_sm",
+      "footer": "small uppercase text link with arrow",
+      "hover": "soft shadow and slight translateY(-4px)"
+    },
+    "stat_strip": {
+      "background": "primary.navy_900",
+      "text": "neutral.white",
+      "radius": "xl",
+      "padding": "28px 36px",
+      "columns": 4,
+      "dividers": "subtle vertical separators on desktop",
+      "stat_number": {
+        "font": "display",
+        "size": "2.1rem",
+        "color": "neutral.white"
+      },
+      "stat_label": {
+        "font": "body_sm",
+        "color": "rgba(255,255,255,0.7)"
+      }
+    },
+    "testimonial_card": {
+      "background": "neutral.white",
+      "border": "subtle",
+      "radius": "lg",
+      "padding": "32px",
+      "quote_mark": "large gold quotation mark",
+      "quote_font": "display",
+      "attribution": "body_sm"
+    },
+    "blog_card": {
+      "background": "neutral.white",
+      "border": "subtle",
+      "radius": "lg",
+      "overflow": "hidden",
+      "image_ratio": "16:9",
+      "date_badge": {
+        "background": "neutral.white",
+        "position": "bottom-left overlay",
+        "style": "small stacked month and day"
+      },
+      "title": "heading_md",
+      "excerpt": "body_sm",
+      "link": "uppercase text link"
+    },
+    "trust_bar": {
+      "background": "neutral.white",
+      "radius": "xl",
+      "padding": "24px 32px",
+      "label": "caption centered",
+      "logos": "monochrome grayscale partner or publication logos",
+      "layout": "six logos on desktop, horizontal scroll on mobile"
+    },
+    "metric_panel": {
+      "background": "primary.navy_900",
+      "radius": "lg",
+      "padding": "24px",
+      "title": "body_sm",
+      "metric": "display",
+      "trend": "small green or gold indicator",
+      "chart": "minimal line chart with gold stroke"
+    },
+    "form": {
+      "field_height": "52px",
+      "label": "body_sm semibold",
+      "background": "neutral.white",
+      "border": "subtle",
+      "focus_border": "secondary.gold_600",
+      "radius": "md",
+      "error_style": "semantic.error with concise helper text"
+    },
+    "footer": {
+      "background": "primary.navy_950",
+      "text": "neutral.white",
+      "muted_text": "rgba(255,255,255,0.65)",
+      "columns": 4,
+      "top_padding": "64px",
+      "bottom_padding": "28px",
+      "social_icons": "small outlined or monochrome icons"
+    }
+  },
+  "page_structure": {
+    "sections": [
+      {
+        "id": "header",
+        "type": "navigation",
+        "purpose": "Provide clear navigation and a persistent consultation CTA."
+      },
+      {
+        "id": "hero",
+        "type": "split_hero",
+        "purpose": "Communicate financial clarity, trust, and the main conversion action.",
+        "layout": "two columns; copy left, professional consultant image right",
+        "elements": [
+          "eyebrow",
+          "large serif headline with two-line emphasis",
+          "supporting paragraph",
+          "primary CTA",
+          "secondary CTA",
+          "client satisfaction micro-proof",
+          "financial metric floating panel"
+        ],
+        "background": "neutral.off_white with subtle abstract geometric forms"
+      },
+      {
+        "id": "trust",
+        "type": "logo_bar",
+        "purpose": "Reinforce credibility through trusted publications or partners."
+      },
+      {
+        "id": "services",
+        "type": "service_grid",
+        "purpose": "Present core financial services in five cards.",
+        "recommended_items": [
+          "Investment Planning",
+          "Retirement Planning",
+          "Wealth Management",
+          "Tax Planning",
+          "Business Finance"
+        ]
+      },
+      {
+        "id": "metrics",
+        "type": "stat_strip",
+        "purpose": "Show proof points such as clients, experience, satisfaction, and assets managed."
+      },
+      {
+        "id": "about",
+        "type": "image_text_split",
+        "purpose": "Explain the company's mission, approach, and differentiators.",
+        "elements": [
+          "image collage",
+          "eyebrow",
+          "serif heading",
+          "paragraph",
+          "three value bullets",
+          "secondary CTA",
+          "quote card"
+        ]
+      },
+      {
+        "id": "insights",
+        "type": "blog_grid",
+        "purpose": "Demonstrate expertise and support organic search.",
+        "recommended_items": 3
+      },
+      {
+        "id": "cta",
+        "type": "dark_conversion_banner",
+        "purpose": "Close the page with a direct consultation invitation.",
+        "background": "primary.navy_900",
+        "elements": [
+          "calendar icon",
+          "headline",
+          "supporting sentence",
+          "gold CTA",
+          "subtle financial chart decoration"
+        ]
+      },
+      {
+        "id": "footer",
+        "type": "multi_column_footer",
+        "purpose": "Provide navigation, services, contact information, and legal links."
+      }
+    ]
+  },
+  "imagery": {
+    "style": [
+      "high-end editorial photography",
+      "natural daylight",
+      "professional but approachable people",
+      "modern offices and financial environments",
+      "neutral backgrounds with navy and gold accents",
+      "authentic collaborative moments"
+    ],
+    "hero_image": {
+      "subject": "confident financial consultant in a modern office",
+      "composition": "subject positioned to the right with negative space on the left",
+      "lighting": "soft natural light",
+      "crop": "portrait or 4:5",
+      "avoid": [
+        "overly staged stock-photo poses",
+        "excessive saturation",
+        "busy backgrounds",
+        "strong colored clothing competing with the brand"
+      ]
+    },
+    "about_images": {
+      "format": "two overlapping images",
+      "subjects": [
+        "modern office architecture",
+        "financial advisory meeting"
+      ],
+      "treatment": "rounded corners, subtle gold decorative shape behind the collage"
+    },
+    "image_overlay": {
+      "allowed": true,
+      "opacity": "0.04 to 0.12",
+      "color": "primary.navy_900 or secondary.gold_600"
+    }
+  },
+  "icons": {
+    "style": "minimal line icons with rounded terminals",
+    "stroke_width": "1.5px to 2px",
+    "default_color": "secondary.gold_600",
+    "recommended_library": "Lucide Icons or Phosphor Icons",
+    "common_icons": [
+      "chart-pie",
+      "shield-check",
+      "target",
+      "file-text",
+      "hand-coins",
+      "users",
+      "award",
+      "wallet",
+      "calendar",
+      "arrow-right",
+      "menu",
+      "chevron-down"
+    ]
+  },
+  "responsive_behavior": {
+    "desktop": {
+      "navigation": "full horizontal menu",
+      "hero": "two-column split",
+      "service_grid": "five columns",
+      "metrics": "four columns",
+      "footer": "four columns"
+    },
+    "tablet": {
+      "navigation": "condensed menu or drawer",
+      "hero": "two columns with reduced spacing",
+      "service_grid": "two or three columns",
+      "metrics": "two columns",
+      "footer": "two columns"
+    },
+    "mobile": {
+      "navigation": "hamburger menu with full-width CTA",
+      "hero": "single column; image below content",
+      "service_grid": "single column",
+      "metrics": "two columns or stacked",
+      "about": "single column with image collage simplified",
+      "blog_grid": "single column",
+      "footer": "single column accordion or stacked groups",
+      "buttons": "full-width where appropriate"
+    }
+  },
+  "accessibility": {
+    "requirements": [
+      "Maintain minimum 4.5:1 contrast for normal text.",
+      "Provide visible focus states for all interactive elements.",
+      "Use semantic heading hierarchy.",
+      "Use descriptive alt text for meaningful images.",
+      "Mark decorative images with empty alt attributes.",
+      "Ensure mobile navigation is keyboard accessible.",
+      "Do not rely on color alone to communicate status.",
+      "Respect prefers-reduced-motion.",
+      "Use labels and error messages for all form fields."
+    ]
+  },
+  "content_guidelines": {
+    "tone": "clear, confident, reassuring, consultative",
+    "headline_style": "short, benefit-led, editorial, emotionally positive",
+    "body_copy": "plain language with specific outcomes and minimal jargon",
+    "cta_verbs": [
+      "Book a Consultation",
+      "Explore Our Services",
+      "Learn More",
+      "View All Insights",
+      "Take Control of Your Future"
+    ],
+    "avoid": [
+      "guaranteed financial returns",
+      "fear-based messaging",
+      "overly technical financial language",
+      "unsupported performance claims"
+    ]
+  },
+  "sample_content": {
+    "hero": {
+      "eyebrow": "SMART ADVICE. STRONG FUTURES.",
+      "headline": "Financial Clarity. Confident Tomorrow.",
+      "description": "We help individuals and businesses build, grow, and protect wealth with personalized strategies that deliver real results.",
+      "primary_cta": "Our Services",
+      "secondary_cta": "Book a Consultation"
+    },
+    "services_heading": {
+      "eyebrow": "WHAT WE OFFER",
+      "title": "Comprehensive Financial Solutions",
+      "description": "Tailored strategies. Transparent advice. Lasting impact."
+    },
+    "about_heading": {
+      "eyebrow": "ABOUT US",
+      "title": "Your Financial Success Is Our Mission"
+    },
+    "insights_heading": {
+      "eyebrow": "LATEST INSIGHTS",
+      "title": "Smart Insights, Stronger Decisions"
+    },
+    "final_cta": {
+      "title": "Ready to Take Control of Your Financial Future?",
+      "description": "Let's build a plan that works for you.",
+      "button": "Book a Consultation"
+    }
+  },
+  "implementation_checklist": [
+    "Create global design tokens from this JSON.",
+    "Build reusable Header, Button, SectionHeading, ServiceCard, StatStrip, BlogCard, CTA banner, and Footer components.",
+    "Create desktop, tablet, and mobile layouts before polishing visual details.",
+    "Use real content lengths close to the sample content during layout development.",
+    "Add optimized image assets and meaningful alt text.",
+    "Validate keyboard navigation and color contrast.",
+    "Test the page at 320px, 768px, 1024px, 1280px, and 1440px widths.",
+    "Add SEO metadata, Open Graph data, and structured data for the financial consulting organization."
+  ]
+}

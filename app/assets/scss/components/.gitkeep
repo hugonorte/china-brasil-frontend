@@ -1,0 +1,5 @@
+Estilos globais de componentes reutilizáveis entram aqui (ex.: _buttons.scss
+para classes .btn usadas fora de componentes Vue com <style scoped>).
+Prefira, sempre que possível, escrever o estilo dentro do próprio componente
+Vue com <style lang="scss" scoped>, importando os mixins/variáveis de
+'~/assets/scss/abstracts'.

@@ -1,0 +1,30 @@
+// Classes utilitárias de layout — usar com moderação; prefira o mixin
+// `container()` / `section-padding()` diretamente dentro do <style> de cada
+// componente sempre que possível.
+@use '../abstracts' as *;
+
+.container {
+  @include container;
+}
+
+.container--content {
+  @include container($content-width);
+}
+
+.section {
+  @include section-padding;
+}
+
+.section_conteiner {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #ded9d9;
+background: linear-gradient(0deg, rgba(222, 217, 217, 1) 0%, rgba(237, 237, 237, 1) 100%);
+
+  /* Empurra o ultimo elemento para baixo */
+  & > :last-child {
+    margin-top: auto;
+  }
+}
+

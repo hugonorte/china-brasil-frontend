@@ -1,0 +1,11 @@
+// Ponto único de acesso às abstrações do design system.
+// Em qualquer arquivo .scss (global ou dentro de um <style lang="scss"> de componente),
+// use: @use '~/assets/scss/abstracts' as *;
+
+@forward 'breakpoints';
+@forward 'colors';
+@forward 'typography';
+@forward 'spacing';
+@forward 'radii';
+@forward 'motion';
+@forward 'mixins';

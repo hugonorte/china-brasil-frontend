@@ -1,0 +1,50 @@
+// Cores — espelha design-system/tokens.json > design_tokens.colors
+// Base institucional: vermelho (red-900). Dourado como destaque principal
+// sobre fundo escuro. Jade como accent secundário e discreto.
+
+// Primária (vermelho)
+$red-950: #2B0808;
+$red-900: #7A1315; // cor-base
+$red-800: #93191A;
+$red-700: #AE2626;
+$red-600: #C93838;
+
+// Accent (jade)
+$jade-700: #166B52;
+$jade-600: #1E8566;
+$jade-500: #2A9E7B;
+
+// Secundária (dourado)
+$gold-700: #A87B2E;
+$gold-600: #C79A42;
+$gold-500: #D9B662;
+$gold-300: #EDDBA9;
+
+// Neutros
+$white: #FFFFFF;
+$off-white: #FAF6F5;
+$surface: #F5F0EE;
+$surface-alt: #EEE3E0;
+$border: #E8DEDC;
+$text: #2A1F1F;
+$text-muted: #6B5757;
+$text-light: #A18F8F;
+$black: #080808;
+
+// Semânticas
+$success: #1E8566;
+$warning: #C79A42;
+$error: #AE2626;
+$info: #2E6E8E;
+
+// Uso semântico — usar estas variáveis nos componentes, não as cores cruas acima
+$color-page-background: $off-white;
+$color-heading-text: $red-950;
+$color-body-text: $text;
+$color-muted-text: $text-muted;
+$color-primary-action: $red-900;
+$color-primary-action-hover: $red-950;
+$color-secondary-action: $jade-700;
+$color-highlight: $gold-600;
+$color-highlight-hover: $gold-700;
+$color-dark-section: $red-950;

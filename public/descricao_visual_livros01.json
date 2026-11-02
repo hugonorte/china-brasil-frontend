@@ -1,0 +1,291 @@
+{
+  "metadata": {
+    "purpose": "Descrição visual detalhada para orientar a recriação da imagem por um modelo de geração de imagens",
+    "language": "pt-BR",
+    "image_type": "fotografia de natureza-morta / still life",
+    "orientation": "vertical",
+    "aspect_ratio": "aproximadamente 2:3",
+    "visual_style": [
+      "fotorealista",
+      "cinematográfico",
+      "acolhedor",
+      "editorial",
+      "profundidade de campo rasa",
+      "iluminação natural dramática"
+    ],
+    "quality_targets": [
+      "texturas realistas",
+      "materiais fisicamente plausíveis",
+      "composição em camadas",
+      "foco nítido nos objetos do primeiro plano",
+      "fundo suavemente desfocado"
+    ]
+  },
+  "scene": {
+    "setting": "canto de leitura em uma biblioteca ou escritório doméstico",
+    "mood": [
+      "tranquilo",
+      "intelectual",
+      "confortável",
+      "intimista",
+      "contemplativo"
+    ],
+    "time_impression": "luz suave de manhã ou fim de tarde",
+    "environment": {
+      "background": "estantes altas de madeira escura preenchidas por livros",
+      "background_detail_level": "moderado, com lombadas reconhecíveis mas sem títulos legíveis",
+      "cleanliness": "organizado, porém natural, com alguns livros empilhados"
+    }
+  },
+  "composition": {
+    "camera_orientation": "retrato / vertical",
+    "viewpoint": "ao nível da mesa, ligeiramente acima da superfície",
+    "framing": "natureza-morta em primeiro plano com estantes ocupando todo o fundo",
+    "depth_layers": [
+      {
+        "layer": "fundo",
+        "elements": [
+          "estante escura",
+          "livros em pé",
+          "alguns livros empilhados horizontalmente"
+        ],
+        "focus": "desfocado"
+      },
+      {
+        "layer": "plano médio",
+        "elements": [
+          "vaso de vidro com flor",
+          "pilha de livros"
+        ],
+        "focus": "nítido, especialmente a flor e o vaso"
+      },
+      {
+        "layer": "primeiro plano",
+        "elements": [
+          "caneca azul",
+          "livro aberto",
+          "óculos de leitura",
+          "mesa de madeira"
+        ],
+        "focus": "nítido, com detalhes visíveis nas texturas"
+      }
+    ],
+    "visual_balance": "a flor alaranjada chama a atenção na região central-direita; a caneca azul equilibra a composição no canto inferior esquerdo; o livro aberto e os óculos ocupam a parte inferior",
+    "leading_lines": [
+      "bordas horizontais das prateleiras",
+      "linhas da pilha de livros",
+      "veios horizontais da mesa"
+    ],
+    "negative_space": "área de fundo escura e suavemente desfocada na parte superior, sem elementos modernos chamativos"
+  },
+  "objects": [
+    {
+      "id": "bookshelf",
+      "name": "estante de livros",
+      "position": "fundo inteiro, principalmente metade superior",
+      "appearance": {
+        "material": "madeira escura",
+        "colors": [
+          "marrom-escuro",
+          "preto amarronzado"
+        ],
+        "structure": "prateleiras horizontais largas e compartimentos verticais",
+        "contents": "muitos livros de alturas variadas, organizados principalmente em pé, com pequenos grupos empilhados horizontalmente",
+        "book_spine_colors": [
+          "creme",
+          "bege",
+          "marrom",
+          "vinho",
+          "azul-marinho",
+          "verde-escuro",
+          "cinza",
+          "preto"
+        ],
+        "readable_text": "nenhum texto deve ficar claramente legível"
+      }
+    },
+    {
+      "id": "flower",
+      "name": "flor alaranjada semelhante a uma gérbera ou dália",
+      "position": "centro-direita, acima da pilha de livros",
+      "appearance": {
+        "petals": "muitas pétalas finas e sobrepostas, com pontas levemente irregulares",
+        "petal_colors": [
+          "laranja intenso",
+          "vermelho-alaranjado",
+          "amarelo-dourado nas regiões iluminadas"
+        ],
+        "center": "miolo escuro castanho-avermelhado",
+        "stem": "caule verde fino e curvado, visível através do vidro",
+        "leaves": "folhas verdes vivas, especialmente projetadas para a direita e para cima",
+        "condition": "flor fresca, aberta e visualmente detalhada"
+      }
+    },
+    {
+      "id": "glass_vase",
+      "name": "vaso transparente de vidro",
+      "position": "centro-direita, sobre o livro azul",
+      "appearance": {
+        "shape": "vaso pequeno, arredondado na parte inferior, com gargalo estreito e abertura alargada",
+        "material": "vidro transparente",
+        "contents": "água transparente cobrindo a parte inferior dos caules",
+        "details": "reflexos e refrações discretos, bordas do vidro realçadas pela luz",
+        "transparency": "alta"
+      }
+    },
+    {
+      "id": "book_stack",
+      "name": "pilha de livros fechados",
+      "position": "centro inferior, atrás do livro aberto",
+      "count": "aproximadamente três ou quatro volumes",
+      "appearance": {
+        "top_book": {
+          "cover_color": "azul-petróleo ou azul-marinho",
+          "cover_material": "capa dura com textura sutil",
+          "thickness": "grosso",
+          "details": "pequenas letras douradas na lombada, discretas e não prioritárias"
+        },
+        "lower_books": {
+          "cover_colors": [
+            "bege",
+            "marrom-claro",
+            "preto"
+          ],
+          "materials": [
+            "papel",
+            "capa dura"
+          ],
+          "edges": "páginas amareladas ou creme, com sinais leves de uso"
+        },
+        "arrangement": "pilha horizontal ligeiramente irregular, com volumes de tamanhos diferentes"
+      }
+    },
+    {
+      "id": "mug",
+      "name": "caneca de cerâmica azul",
+      "position": "primeiro plano à esquerda, parcialmente cortada pela borda inferior",
+      "appearance": {
+        "shape": "caneca cilíndrica com borda arredondada e alça grande à esquerda",
+        "material": "cerâmica esmaltada",
+        "color": "azul-petróleo profundo",
+        "finish": "brilho suave com reflexos verticais",
+        "contents": "bebida escura, provavelmente café ou chá, visível perto da borda",
+        "handle": "alça larga e curva, na lateral esquerda"
+      }
+    },
+    {
+      "id": "open_book",
+      "name": "livro aberto",
+      "position": "primeiro plano inferior, ocupando a região central e direita",
+      "appearance": {
+        "pages": "papel creme, ligeiramente amarelado",
+        "layout": "duas páginas abertas com blocos de texto impresso em linhas pequenas",
+        "binding": "lombada central visível e páginas curvadas naturalmente",
+        "edges": "cantos e bordas com leve irregularidade realista",
+        "text": "texto semelhante a um livro impresso, sem necessidade de palavras legíveis"
+      }
+    },
+    {
+      "id": "eyeglasses",
+      "name": "óculos de leitura",
+      "position": "sobre as páginas do livro aberto, na região inferior central",
+      "appearance": {
+        "frame": "armação preta ou marrom muito escura",
+        "style": "retangular com cantos suavemente arredondados",
+        "lenses": "transparentes, com reflexos discretos",
+        "temples": "hastes finas; uma haste se estende para a direita e outra aparece sobre a página",
+        "orientation": "óculos apoiados diagonalmente sobre o livro"
+      }
+    },
+    {
+      "id": "wooden_table",
+      "name": "mesa de madeira rústica",
+      "position": "base de toda a composição",
+      "appearance": {
+        "material": "madeira maciça",
+        "color": "marrom quente, caramelo e castanho",
+        "texture": "veios evidentes, marcas de uso, pequenas fissuras e irregularidades naturais",
+        "finish": "fosco ou acetinado, sem aparência plástica",
+        "grain_direction": "predominantemente horizontal"
+      }
+    }
+  ],
+  "lighting": {
+    "type": "luz natural lateral",
+    "direction": "vem da esquerda e ligeiramente de frente",
+    "quality": "suave, difusa, com feixes luminosos e atmosfera levemente enevoada",
+    "highlights": [
+      "pétalas da flor",
+      "folhas verdes",
+      "borda e corpo do vaso",
+      "superfície esmaltada da caneca",
+      "páginas do livro aberto",
+      "veios da mesa"
+    ],
+    "shadows": "sombras suaves a moderadas projetadas para a direita e para trás",
+    "contrast": "alto contraste entre a área iluminada à esquerda e as estantes escuras ao fundo",
+    "atmosphere": "leve brilho volumétrico ou névoa luminosa no canto superior esquerdo, sem ocultar os objetos principais"
+  },
+  "color_palette": {
+    "dominant": [
+      {
+        "color": "marrom-escuro",
+        "role": "estantes e fundo"
+      },
+      {
+        "color": "marrom quente",
+        "role": "mesa e capas dos livros"
+      },
+      {
+        "color": "azul-petróleo",
+        "role": "caneca e livro superior"
+      },
+      {
+        "color": "laranja-avermelhado",
+        "role": "flor, principal ponto de cor"
+      },
+      {
+        "color": "verde vivo",
+        "role": "folhas e caules"
+      },
+      {
+        "color": "creme",
+        "role": "páginas e lombadas claras"
+      }
+    ],
+    "grading": "tons quentes, sombras profundas, saturação moderada com laranja e azul mais destacados",
+    "white_balance": "quente, sem amarelar excessivamente as páginas"
+  },
+  "camera_and_rendering": {
+    "look": "fotografia de produto/editorial com aparência de câmera real",
+    "lens_impression": "lente normal a levemente teleobjetiva",
+    "depth_of_field": "rasa a moderada",
+    "focus_priority": [
+      "flor",
+      "vaso",
+      "livro azul",
+      "caneca",
+      "óculos e páginas do livro aberto"
+    ],
+    "background_bokeh": "suave, sem círculos de bokeh exagerados",
+    "sharpness": "detalhes finos nos objetos principais; fundo mais macio",
+    "dynamic_range": "preservar detalhes nas áreas iluminadas e nas sombras escuras"
+  },
+  "prompt": {
+    "positive": "Fotografia fotorealista vertical 2:3 de uma natureza-morta acolhedora em um canto de leitura de uma biblioteca clássica. Ao fundo, estantes altas de madeira escura repletas de livros de lombadas variadas em tons de creme, bege, marrom, vinho, azul-marinho e preto, suavemente desfocadas. Em uma mesa rústica de madeira quente com veios marcados, há uma pilha horizontal de livros antigos; o livro superior é grosso, azul-petróleo, de capa dura, com páginas creme. Sobre ele repousa um pequeno vaso transparente de vidro, com água e caules verdes visíveis, contendo uma flor grande, aberta, de pétalas finas laranja e vermelho-alaranjadas com reflexos dourados, miolo escuro e folhas verdes vivas. No primeiro plano à esquerda, uma caneca de cerâmica azul-petróleo com café escuro e alça grande. No primeiro plano inferior, um livro aberto de páginas creme com linhas de texto impresso e óculos de leitura de armação escura retangular apoiados diagonalmente sobre as páginas. Luz natural lateral suave entrando pela esquerda, atmosfera luminosa levemente enevoada no canto superior esquerdo, sombras profundas e acolhedoras, contraste cinematográfico, cores quentes, texturas realistas de madeira, papel, cerâmica e vidro, foco detalhado nos objetos principais, fundo com profundidade de campo rasa, composição editorial elegante, sem pessoas.",
+    "negative": "pessoas, mãos, rostos, animais, móveis modernos, telas, computadores, televisão, elementos tecnológicos, ambiente minimalista vazio, estantes brancas, luz fria, iluminação plana, cores neon, excesso de saturação, aparência de ilustração, pintura, desenho, CGI evidente, objetos flutuantes, vaso opaco, flor artificial, pétalas deformadas, caules impossíveis, caneca sem alça, óculos deformados, páginas fundidas, texto grande legível, letras aleatórias em destaque, duplicação de objetos, desfoque nos objetos do primeiro plano, nitidez artificial excessiva, sombras sem direção, reflexos exagerados, marca-d'água, logotipo, bordas ou moldura"
+  },
+  "generation_guidance": {
+    "aspect_ratio": "2:3",
+    "priority_order": [
+      "preservar a composição e a posição relativa dos objetos",
+      "reproduzir a luz lateral da esquerda",
+      "manter a flor laranja como ponto focal",
+      "preservar a caneca azul à esquerda e o livro aberto com óculos embaixo",
+      "criar estantes escuras desfocadas ao fundo",
+      "renderizar materiais com textura fotográfica realista"
+    ],
+    "text_rendering_note": "Não priorizar a reprodução literal dos títulos nas lombadas ou do texto nas páginas; manter apenas a aparência de impressão real.",
+    "fidelity_note": "Para maior fidelidade, usar a imagem original como referência visual junto deste JSON, quando a ferramenta de geração permitir."
+  }
+}

@@ -1,0 +1,19 @@
+// Breakpoints — mobile-first (ver design-system/tokens.json > layout.breakpoints)
+// A base do projeto (sem media query) É o mobile. Cada breakpoint abaixo
+// representa o ponto a partir do qual o layout "cresce" para telas maiores.
+@use 'sass:map';
+
+$breakpoints: (
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  2xl: 1440px,
+);
+
+@function breakpoint($name) {
+  @if not map.has-key($breakpoints, $name) {
+    @error "Breakpoint `#{$name}` não existe em $breakpoints. Opções: #{map.keys($breakpoints)}.";
+  }
+  @return map.get($breakpoints, $name);
+}

@@ -1,0 +1,108 @@
+/**
+ * ChinaBrasil Design System — CSS Custom Properties
+ * Espelha design-system/tokens.json. Importar globalmente em app/assets/css/tokens.css
+ * (ou copiar este arquivo para lá) e referenciar via var(--cb-*) em qualquer lugar,
+ * inclusive fora do Tailwind (e-mails, PDFs, libs de terceiros).
+ */
+
+:root {
+  /* Cores — primária (vermelho) */
+  --cb-red-950: #2B0808;
+  --cb-red-900: #7A1315;
+  --cb-red-800: #93191A;
+  --cb-red-700: #AE2626;
+  --cb-red-600: #C93838;
+
+  /* Cores — accent (jade) */
+  --cb-jade-700: #166B52;
+  --cb-jade-600: #1E8566;
+  --cb-jade-500: #2A9E7B;
+
+  /* Cores — secundária (dourado) */
+  --cb-gold-700: #A87B2E;
+  --cb-gold-600: #C79A42;
+  --cb-gold-500: #D9B662;
+  --cb-gold-300: #EDDBA9;
+
+  /* Neutros */
+  --cb-white: #FFFFFF;
+  --cb-off-white: #FAF6F5;
+  --cb-surface: #F5F0EE;
+  --cb-surface-alt: #EEE3E0;
+  --cb-border: #E8DEDC;
+  --cb-text: #2A1F1F;
+  --cb-text-muted: #6B5757;
+  --cb-text-light: #A18F8F;
+
+  /* Semânticas */
+  --cb-success: #1E8566;
+  --cb-warning: #C79A42;
+  --cb-error: #AE2626;
+  --cb-info: #2E6E8E;
+
+  /* Uso semântico */
+  --cb-page-background: var(--cb-off-white);
+  --cb-heading-text: var(--cb-red-950);
+  --cb-body-text: var(--cb-text);
+  --cb-muted-text: var(--cb-text-muted);
+  --cb-primary-action: var(--cb-red-900);
+  --cb-secondary-action: var(--cb-jade-700);
+  --cb-highlight: var(--cb-gold-600);
+  --cb-dark-section: var(--cb-red-950);
+
+  /* Tipografia */
+  --cb-font-display: 'Fraunces', Georgia, serif;
+  --cb-font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Espaçamento (base 4px) */
+  --cb-space-1: 4px;
+  --cb-space-2: 8px;
+  --cb-space-3: 12px;
+  --cb-space-4: 16px;
+  --cb-space-5: 20px;
+  --cb-space-6: 24px;
+  --cb-space-8: 32px;
+  --cb-space-10: 40px;
+  --cb-space-12: 48px;
+  --cb-space-16: 64px;
+  --cb-space-20: 80px;
+  --cb-space-24: 96px;
+  --cb-space-32: 128px;
+
+  /* Layout */
+  --cb-max-width: 1280px;
+  --cb-content-width: 1180px;
+  --cb-text-width: 640px;
+
+  /* Raios */
+  --cb-radius-sm: 4px;
+  --cb-radius-md: 8px;
+  --cb-radius-lg: 14px;
+  --cb-radius-xl: 20px;
+  --cb-radius-2xl: 28px;
+  --cb-radius-pill: 999px;
+
+  /* Bordas */
+  --cb-border-subtle: 1px solid var(--cb-border);
+  --cb-border-gold: 1px solid var(--cb-gold-600);
+  --cb-border-dark: 1px solid rgba(255, 255, 255, 0.16);
+
+  /* Sombras */
+  --cb-shadow-soft: 0 8px 30px rgba(43, 8, 8, 0.07);
+  --cb-shadow-card: 0 14px 40px rgba(43, 8, 8, 0.09);
+  --cb-shadow-floating: 0 20px 60px rgba(43, 8, 8, 0.18);
+
+  /* Movimento */
+  --cb-duration-fast: 150ms;
+  --cb-duration-normal: 250ms;
+  --cb-duration-slow: 450ms;
+  --cb-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --cb-duration-fast: 0ms;
+    --cb-duration-normal: 0ms;
+    --cb-duration-slow: 0ms;
+  }
+}

@@ -1,0 +1,15 @@
+// Ponto de entrada global de estilos do site ChinaBrasil.
+// Importado uma única vez em nuxt.config.ts (css: ['~/assets/scss/main.scss']).
+//
+// Abordagem: mobile-first em todo o projeto. Todo componente Vue novo deve
+// escrever primeiro o CSS "solto" (mobile) e usar `@include respond-to($bp)`
+// (ver abstracts/_mixins.scss) para adaptar a partir de sm/md/lg/xl/2xl.
+//
+// SCSS é o padrão do projeto. Tailwind só deve ser usado em pontos
+// explicitamente indicados — ver design-system/README.md.
+
+@use 'abstracts' as *;
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/global';
+@use 'layout/container';

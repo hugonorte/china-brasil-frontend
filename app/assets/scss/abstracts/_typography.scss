@@ -1,0 +1,23 @@
+// Tipografia — espelha design-system/tokens.json > design_tokens.typography
+
+$font-display: 'Fraunces', Georgia, serif;
+$font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+// Escala tipográfica mobile-first.
+// Os valores já usam clamp() onde o design pede fluidez entre mobile e desktop,
+// então normalmente não é preciso reescrever font-size dentro de @include respond-to().
+$font-size-display-xl: clamp(2rem, 5vw + 1rem, 4.75rem);
+$font-size-display-lg: clamp(1.75rem, 4vw + 1rem, 3.5rem);
+$font-size-heading-xl: clamp(1.6rem, 3vw + 1rem, 2.75rem);
+$font-size-heading-lg: clamp(1.35rem, 2vw + 1rem, 2rem);
+$font-size-heading-md: 1.3rem;
+$font-size-body-lg: 1.125rem;
+$font-size-body-md: 1rem;
+$font-size-body-sm: 0.875rem;
+$font-size-caption: 0.72rem;
+$font-size-button: 0.8rem;

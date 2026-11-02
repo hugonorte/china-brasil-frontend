@@ -1,0 +1,18 @@
+// Raios e sombras — ver design-system/tokens.json > design_tokens.radii/shadows
+@use 'colors' as *;
+
+$radius-none: 0;
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 14px;
+$radius-xl: 20px;
+$radius-2xl: 28px;
+$radius-pill: 999px;
+
+$border-subtle: 1px solid $border;
+$border-gold: 1px solid $gold-600;
+$border-dark: 1px solid rgba(255, 255, 255, 0.16);
+
+$shadow-soft: 0 8px 30px rgba(43, 8, 8, 0.07);
+$shadow-card: 0 14px 40px rgba(43, 8, 8, 0.09);
+$shadow-floating: 0 20px 60px rgba(43, 8, 8, 0.18);
