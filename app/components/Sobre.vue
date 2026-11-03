@@ -1,9 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// Resumo da home. O perfil completo da fundadora fica em /sobre-a-china-brasil (YuanAipingPerfil).
+</script>
 
 <template>
-  <section class="sobre" data-cy="sobre">
+  <section class="sobre" data-cy="sobre" aria-labelledby="sobre-title">
     <div class="sobre__container">
-      <h2 class="sobre__title">Sobre Yuan Aiping</h2>
+      <h2 id="sobre-title" class="sobre__title">Sobre Yuan Aiping</h2>
 
       <div class="sobre__row">
         <div class="sobre__col sobre__col--image">
@@ -11,28 +13,30 @@
             src="/img/home/sobre/foto-da-Yuan.jpg"
             alt="Professora Yuan Aiping"
             class="sobre__image"
+            width="949"
+            height="852"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div class="sobre__col sobre__col--text">
           <p class="sobre__description">
-            Yuan Aiping nasceu na República Popular da China. É formada no Departamento de
-            Língua Estrangeira, em língua e literatura inglesa, pela HEBEI NORMAL UNIVERSITY. Lecionou
-            inglês na China por 13 anos. Chegou ao Rio de Janeiro em 1997, ingressou no curso de português
-            para estrangeiros da UFRJ – UNIVERSIDADE FEDERAL DO RIO DE JANEIRO, completando posteriormente
-            seus estudos na UERJ – UNIVERSIDADE ESTADUAL DO RIO DE JANEIRO. Em 2001, adquiriu o Certificado
-            de Proficiência em Língua Portuguesa para estrangeiros, de reconhecimento mundial, emitido pelo
-            MEC em conjunto com a Secretária de Educação Superior e o Ministério de Relações Exteriores.
-            Foi professora de chinês na UniverCidade do Rio de Janeiro. Fundou o "CENTRO CULTURAL CHINA –
-            BRASIL YUAN AIPING" em 2004, que hoje possui 4 filiais, sendo duas na China, uma em Pequim e
-            outra em Xangai, onde ministra cursos de português para chineses e chinês para brasileiros
-            (Recentemente, o Centro Cultural China-Brasil Yuan Aiping, foi reconhecido pelo governo chinês
-            como uma das melhores escolas de mandarim do mundo). Yuan Aiping é também a autora de 20 livros
-            didáticos e tem promovido diversas atividades de intercâmbio cultural entre Brasil e China. Em
-            2015, foi eleita uma das melhores professoras de mandarim do mundo pelo governo chinês. É
-            fundadora e primeira diretora da Escola Chinesa do Rio de Janeiro. Em 2017, ganhou o Título da
-            Cidadã Carioca pela Assembléia Legislativa do Estado do Rio de Janeiro e foi nomeada Assessora
-            Consular pelo Consulado Chinês do Rio de Janeiro.
+            Yuan Aiping nasceu na República Popular da China, é formada em língua e literatura inglesa pela
+            Hebei Normal University e lecionou inglês na China por 13 anos. Chegou ao Rio de Janeiro em 1997,
+            estudou português na UFRJ e na UERJ e, em 2001, obteve o Certificado de Proficiência em Língua
+            Portuguesa para Estrangeiros.
           </p>
+          <p class="sobre__description">
+            Em 2004, fundou o Centro Cultural China-Brasil Yuan Aiping, com filiais em Pequim e Xangai, onde
+            são ministrados cursos de chinês para brasileiros e de português para chineses. É autora de mais
+            de 20 livros didáticos, foi eleita em 2015 pelo governo chinês uma das melhores professoras de
+            mandarim do mundo e, em 2017, recebeu o Título de Cidadã do Estado do Rio de Janeiro.
+          </p>
+
+          <NuxtLink to="/sobre-a-china-brasil" class="sobre__cta" data-cy="sobre-cta">
+            Conheça a trajetória completa
+            <span class="sr-only">de Yuan Aiping e do Centro Cultural China-Brasil</span>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -87,6 +91,15 @@
   &__description {
     color: $color-muted-text;
     max-width: none;
+
+    & + & {
+      margin-top: $space-4;
+    }
+  }
+
+  &__cta {
+    @include button-primary;
+    margin-top: $space-8;
   }
 }
 </style>

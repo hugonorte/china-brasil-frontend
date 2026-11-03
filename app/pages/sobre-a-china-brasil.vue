@@ -185,7 +185,8 @@ const structuredData = {
       url: siteUrl,
       logo: `${siteUrl}/logo.svg`,
       foundingDate: '2004-02',
-      founder: { '@type': 'Person', name: 'Yuan Aiping' },
+      // Perfil completo (Person) publicado pelo componente YuanAipingPerfil.
+      founder: { '@id': `${siteUrl}/#yuan-aiping`, name: 'Yuan Aiping' },
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Rio de Janeiro',
@@ -278,6 +279,9 @@ useHead({
       </p>
       <TestimonialCard :testimonial="founderQuote" />
     </section>
+
+    <!-- 4. Fundadora: perfil completo de Yuan Aiping -->
+    <YuanAipingPerfil />
 
      <!-- 5. Missão, visão e valores -->
     <section class="page-section" aria-labelledby="pillars-title">

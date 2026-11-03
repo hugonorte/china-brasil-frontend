@@ -8,15 +8,6 @@ const tags = ['Letras', 'Ensino de idiomas', 'Acadêmicos']
   <section class="curso-professores" data-cy="curso-professores" aria-labelledby="curso-professores-title">
     <div class="curso-professores__container">
       <div class="curso-professores__banner">
-        <img
-          src="/img/home/sobre/foto-da-Yuan.jpg"
-          alt=""
-          class="curso-professores__photo"
-          loading="lazy"
-          width="96"
-          height="96"
-        />
-
         <div class="curso-professores__body">
           <p class="curso-professores__eyebrow">Formação de professores</p>
           <h2 id="curso-professores-title" class="curso-professores__title">
@@ -104,30 +95,14 @@ const tags = ['Letras', 'Ensino de idiomas', 'Acadêmicos']
     }
 
     @include respond-to(md) {
-      grid-template-columns: auto 1fr;
-      align-items: center;
-      column-gap: $space-8;
       padding: $space-10;
     }
 
     @include respond-to(lg) {
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      column-gap: $space-8;
       padding: $space-10 $space-12;
-    }
-  }
-
-  &__photo {
-    width: 72px;
-    height: 72px;
-    border: 3px solid $gold-500;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: top;
-    box-shadow: 0 0 0 6px rgba($gold-500, 0.12);
-
-    @include respond-to(md) {
-      width: 96px;
-      height: 96px;
     }
   }
 
@@ -199,12 +174,7 @@ const tags = ['Letras', 'Ensino de idiomas', 'Acadêmicos']
       }
     }
 
-    @include respond-to(md) {
-      grid-column: 2;
-    }
-
     @include respond-to(lg) {
-      grid-column: auto;
       justify-self: end;
     }
   }

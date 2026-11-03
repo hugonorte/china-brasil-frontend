@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type {
-  CaseStudy,
   FaqItem,
   MethodStep,
   PartnerLogo,
@@ -50,8 +49,24 @@ const methodSteps: MethodStep[] = [
   },
 ]
 
-// CONTEÚDO PENDENTE: preencher com 2 ou 3 casos reais (podem ser anonimizados).
-const caseStudies: CaseStudy[] = []
+// Experiência em delegações, missões oficiais e implantação de empresas (seção "Assessoria e Intercâmbio").
+const experienceItems = [
+  {
+    tag: '2008 · Pequim',
+    title: 'Jogos Olímpicos de Pequim',
+    text: 'Ao longo de sua trajetória, o CCCB acumulou ampla experiência no acompanhamento de delegações oficiais e missões empresariais. Em 2008, durante os Jogos Olímpicos de Pequim, sua filial na capital chinesa prestou apoio integral ao Ministério do Esporte do Brasil, incluindo serviços de tradução, interpretação e suporte logístico.',
+  },
+  {
+    tag: '2018 · Pequim, Xangai e Hangzhou',
+    title: 'Visitas oficiais de autoridades brasileiras',
+    text: 'O Centro também tem participado de diversas visitas oficiais de autoridades brasileiras à China. Em 2018, sua fundadora e diretora, Yuan Aiping, acompanhou o prefeito do Rio de Janeiro em uma visita oficial a cidades chinesas, incluindo Pequim, Xangai e Hangzhou.',
+  },
+  {
+    tag: 'Empresarial · Petróleo e gás',
+    title: 'Empresas chinesas no Brasil',
+    text: 'Na área empresarial, o CCCB auxilia empresas chinesas interessadas em estabelecer operações no mercado brasileiro, oferecendo orientação e apoio institucional. Entre os projetos realizados, destaca-se o suporte à implantação no Brasil da empresa chinesa Shandong Kerui, especializada em equipamentos para o setor de petróleo e gás.',
+  },
+]
 
 // CONTEÚDO PENDENTE: sócios e consultores responsáveis pelos projetos.
 const teamMembers: TeamMember[] = []
@@ -315,32 +330,44 @@ useHead({
         <MethodTimeline :steps="methodSteps" />
       </section>
 
-      <!-- 5. Casos de estudo -->
-      <section
-        v-if="caseStudies.length || showPendingContent"
-        class="page-section"
-        aria-labelledby="cases-title"
-      >
-        <p class="text-caption">Resultados</p>
-        <h2 id="cases-title">Projetos que acompanhamos</h2>
+      <!-- 5. Assessoria e intercâmbio: experiência comprovada -->
+      <section class="page-section experience" aria-labelledby="cases-title">
+        <p class="text-caption">Experiência</p>
+        <h2 id="cases-title">Assessoria e Intercâmbio China–Brasil</h2>
         <p class="page-section__lead">
-          Cada projeto tem um contexto próprio. Os casos a seguir mostram, na prática, como a nossa
-          atuação se traduz em resultados para empresas brasileiras e chinesas.
+          O Centro Cultural China–Brasil Yuan Aiping (CCCB) oferece serviços de assessoria, consultoria e
+          intermediação nas áreas cultural, institucional, educacional e empresarial, promovendo a cooperação e
+          fortalecendo as relações entre o Brasil e a China.
         </p>
-        <div v-if="caseStudies.length" class="page-section__stack">
-          <CaseStudyCard v-for="item in caseStudies" :key="item.title" :case-study="item" />
-        </div>
-        <ContentPending
-          v-else
-          title="Casos de estudo (2 ou 3)"
-          description="Preencha o array caseStudies no <script> desta página. Os casos podem ser anonimizados, mas devem ser reais."
-          :items="[
-            'Segmento e região do cliente (ex.: indústria de máquinas agrícolas, PR)',
-            'Desafio: o que a empresa buscava e qual era o obstáculo',
-            'Nossa atuação: o que fizemos, em quais etapas do método',
-            'Resultado: preferencialmente mensurável (prazo, volume, contrato firmado)',
-          ]"
-        />
+
+        <figure class="experience__figure">
+          <img
+            src="/img/consultoria/meeting01.avif"
+            alt="Yuan Aiping e comitiva brasileira reunidas com autoridades chinesas em encontro oficial na China"
+            class="experience__image"
+            width="1280"
+            height="853"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="experience__caption">
+            Encontro oficial com autoridades chinesas: o CCCB acompanha delegações e missões entre os dois
+            países.
+          </figcaption>
+        </figure>
+
+        <ol class="experience__list">
+          <li v-for="item in experienceItems" :key="item.title" class="experience__item">
+            <p class="experience__tag">{{ item.tag }}</p>
+            <h3 class="experience__title">{{ item.title }}</h3>
+            <p class="experience__text">{{ item.text }}</p>
+          </li>
+        </ol>
+
+        <p class="experience__closing">
+          Por meio dessas iniciativas, o CCCB reafirma seu compromisso de atuar como uma ponte de cooperação,
+          integração e desenvolvimento entre os dois países.
+        </p>
       </section>
 
       <!-- 6. Depoimentos e logos -->
@@ -359,7 +386,7 @@ useHead({
         <div v-if="testimonials.length" class="testimonials-grid">
           <TestimonialCard v-for="item in testimonials" :key="item.name" :testimonial="item" />
         </div>
-        <ContentPending
+        <!-- <ContentPending
           v-else-if="showPendingContent"
           title="Depoimentos de clientes (2 a 4)"
           description="Preencha o array testimonials no <script> desta página. Depoimentos sem identificação não devem ser publicados."
@@ -368,7 +395,7 @@ useHead({
             'Nome, cargo e empresa',
             'Foto (opcional, mas recomendada)',
           ]"
-        />
+        /> -->
 
         <h3 v-if="partnerLogos.length" class="page-section__subtitle">
           Instituições e empresas com quem atuamos
@@ -434,6 +461,100 @@ useHead({
   &__stack {
     display: grid;
     gap: $space-6;
+  }
+}
+
+.experience {
+  &__figure {
+    position: relative;
+    margin: 0 0 $space-10;
+    overflow: hidden;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-card;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+  &__caption {
+    padding: $space-4 $space-6;
+    background-color: $color-dark-section;
+    color: rgba($white, 0.85);
+    font-size: $font-size-body-sm;
+    line-height: 1.5;
+
+    @include respond-to(md) {
+      position: absolute;
+      right: $space-6;
+      bottom: $space-6;
+      max-width: 340px;
+      border-left: 3px solid $gold-500;
+      border-radius: $radius-md;
+      background-color: rgba($red-950, 0.88);
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: $space-6;
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    padding: $space-8 $space-6;
+    background-color: $white;
+    border: $border-subtle;
+    border-top: 4px solid $color-highlight;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-soft;
+  }
+
+  &__tag {
+    margin-bottom: $space-2;
+    color: $gold-700;
+    font-size: $font-size-caption;
+    font-weight: $weight-semibold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  // Especificidade extra para sobrepor o :deep(h3) do TextContent.
+  & &__title {
+    margin: 0 0 $space-3;
+    color: $color-heading-text;
+    font-size: $font-size-heading-md;
+    line-height: 1.3;
+  }
+
+  & &__text {
+    max-width: none;
+    color: $color-muted-text;
+    font-size: $font-size-body-sm;
+    line-height: 1.7;
+  }
+
+  & &__closing {
+    max-width: none;
+    margin-top: $space-10;
+    padding: $space-6 $space-8;
+    border-left: 4px solid $red-900;
+    border-radius: 0 $radius-md $radius-md 0;
+    background-color: $off-white;
+    color: $color-heading-text;
+    font-family: $font-display;
+    font-size: $font-size-heading-md;
+    line-height: 1.5;
   }
 }
 
