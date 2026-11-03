@@ -25,3 +25,6 @@ logs
 
 # Local Agent / MCP configurations
 .agents/mcp_config.json
+
+# Local documentation / procedures
+deploy-em-producao.md
