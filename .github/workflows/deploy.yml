@@ -3,7 +3,6 @@ name: Deploy SSG to A2 Hosting
 on:
   push:
     branches:
-      - main
       - develop
   workflow_dispatch:
     inputs:
@@ -48,7 +47,7 @@ jobs:
       - name: Set Deployment Target Directory
         id: set-target
         run: |
-          if [ "${{ github.ref_name }}" = "main" ] || [ "${{ github.event.inputs.target }}" = "production" ]; then
+          if [ "${{ github.event.inputs.target }}" = "production" ]; then
             echo "target_dir=/home/${{ secrets.SSH_USER }}/public_html/" >> $GITHUB_OUTPUT
             echo "environment=production" >> $GITHUB_OUTPUT
           else
