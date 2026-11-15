@@ -8,6 +8,7 @@ definePageMeta({
 
 <template>
   <Hero />
+  <AreasNegocio />
   <Consultoria />
   <Livros />
   <Intercambio />
