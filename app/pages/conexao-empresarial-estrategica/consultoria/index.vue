@@ -24,28 +24,15 @@ const showPendingContent = import.meta.dev
 const methodSteps: MethodStep[] = [
   {
     title: 'Diagnóstico',
-    description:
-      'Entendemos os objetivos da sua empresa, o produto ou serviço envolvido, o estágio de internacionalização e as expectativas em relação ao mercado. É nesta etapa que definimos, juntos, o que significa sucesso para o projeto.',
+    description: 'Entendemos os objetivos, o perfil do negócio e as prioridades do projeto.',
   },
   {
-    title: 'Mapeamento e qualificação de parceiros',
-    description:
-      'Pesquisamos o mercado, identificamos potenciais parceiros e avaliamos a reputação, a capacidade e o histórico de cada um. Você recebe uma seleção criteriosa, e não uma lista genérica de contatos.',
+    title: 'Mapeamento e aproximação',
+    description: 'Identificamos parceiros relevantes e organizamos os contatos iniciais.',
   },
   {
-    title: 'Aproximação',
-    description:
-      'Preparamos a apresentação da sua empresa e conduzimos os primeiros contatos com os interlocutores certos, respeitando os códigos de relacionamento de cada cultura.',
-  },
-  {
-    title: 'Negociação',
-    description:
-      'Acompanhamos reuniões, visitas e rodadas de negociação, ajudando a interpretar posições, ajustar propostas e construir acordos equilibrados para os dois lados.',
-  },
-  {
-    title: 'Acompanhamento',
-    description:
-      'Depois do acordo fechado, seguimos ao lado da sua empresa na implementação e na gestão da relação, para que a parceria se mantenha sólida no longo prazo.',
+    title: 'Negociação e acompanhamento',
+    description: 'Apoiamos as conversas e a continuidade das relações comerciais e institucionais.',
   },
 ]
 
@@ -57,9 +44,9 @@ const experienceItems = [
     text: 'Ao longo de sua trajetória, o CCCB acumulou ampla experiência no acompanhamento de delegações oficiais e missões empresariais. Em 2008, durante os Jogos Olímpicos de Pequim, sua filial na capital chinesa prestou apoio integral ao Ministério do Esporte do Brasil, incluindo serviços de tradução, interpretação e suporte logístico.',
   },
   {
-    tag: '2018 · Pequim, Xangai e Hangzhou',
+    tag: '2017 · Pequim, Xangai e Hangzhou',
     title: 'Visitas oficiais de autoridades brasileiras',
-    text: 'O Centro também tem participado de diversas visitas oficiais de autoridades brasileiras à China. Em 2018, sua fundadora e diretora, Yuan Aiping, acompanhou o prefeito do Rio de Janeiro em uma visita oficial a cidades chinesas, incluindo Pequim, Xangai e Hangzhou.',
+    text: 'O Centro também tem participado de diversas visitas oficiais de autoridades brasileiras à China. Em novembro de 2017, sua fundadora e diretora, Yuan Aiping, acompanhou o prefeito do Rio de Janeiro em uma visita oficial a cidades chinesas, incluindo Pequim, Xangai e Hangzhou.',
   },
   {
     tag: 'Empresarial · Petróleo e gás',
@@ -107,9 +94,9 @@ const faqItems: FaqItem[] = [
       'Não. Muitas negociações são conduzidas em inglês ou com o apoio de intérpretes. O maior desafio costuma estar menos no idioma e mais nos códigos culturais: a forma de construir confiança, a hierarquia nas decisões e o que fica implícito nas conversas. É nesse ponto que o acompanhamento de quem conhece as duas culturas faz diferença.',
   },
   {
-    question: 'Como saber se um fornecedor ou parceiro chinês é confiável?',
+    question: 'Como vocês identificam parceiros confiáveis na China?',
     answer:
-      'A avaliação combina análise documental, verificação de reputação no mercado, histórico de operações e, sempre que possível, contato direto e visitas. Nossa rede de relacionamentos na China permite checar informações que dificilmente aparecem em plataformas on-line, o que reduz o risco de escolher o parceiro errado.',
+      'Com análise preliminar, referências e verificação de informações dentro do escopo contratado. Conforme o projeto, isso inclui análise documental, reputação no mercado, histórico de operações e, sempre que possível, contato direto e visitas. Nossa rede de relacionamentos na China permite checar informações que dificilmente aparecem em plataformas on-line, o que reduz o risco de escolher o parceiro errado.',
   },
   {
     question: 'Que tipo de empresa pode contratar a consultoria?',
@@ -117,26 +104,38 @@ const faqItems: FaqItem[] = [
       'Atendemos empresas de diferentes portes e segmentos, além de instituições e entidades de classe. Isso vale tanto para quem está dando os primeiros passos em direção à China quanto para quem já tem operações e deseja ampliá-las.',
   },
   {
-    question: 'A consultoria também atende empresas chinesas interessadas no Brasil?',
+    question: 'A consultoria atende empresas brasileiras e chinesas?',
     answer:
-      'Sim. Atuamos nos dois sentidos: apoiamos empresas brasileiras que buscam oportunidades na China e empresas chinesas que desejam investir, comprar ou estabelecer parcerias no Brasil.',
+      'Sim. Apoiamos projetos nos dois sentidos, conforme a necessidade de cada empresa: empresas brasileiras que buscam oportunidades na China e empresas chinesas que desejam investir, comprar ou estabelecer parcerias no Brasil.',
   },
   {
     question: 'Como começar um projeto com a consultoria?',
     answer:
       'O primeiro passo é uma conversa para entendermos os objetivos da sua empresa e o momento do projeto. A partir dela, indicamos o caminho mais adequado e o tipo de apoio necessário. Basta entrar em contato pela nossa página de contato.',
+    link: { text: 'página de contato', to: '/contato' },
   },
 ]
 
-// Mantenha esta lista igual aos títulos do grid de serviços: ela alimenta o JSON-LD (Service).
-const serviceNames = [
-  'Desenvolvimento de contatos qualificados',
-  'Aproximação entre empresas brasileiras e chinesas',
-  'Identificação de parceiros estratégicos',
-  'Apoio em negociações',
-  'Intermediação comercial e institucional',
-  'Ambiente de negócios e diferenças culturais',
+// Alimenta o grid de serviços e o JSON-LD (Service).
+const services = [
+  {
+    title: 'Conexões e parceiros estratégicos',
+    description: 'Identificamos e aproximamos empresas e instituições alinhadas ao objetivo de cada projeto.',
+  },
+  {
+    title: 'Inteligência de mercado e cultura',
+    description: 'Ajudamos a compreender o ambiente de negócios e as diferenças culturais entre os dois países.',
+  },
+  {
+    title: 'Negociações e intermediação',
+    description: 'Facilitamos o diálogo, as reuniões e o alinhamento de propostas entre as partes.',
+  },
+  {
+    title: 'Acompanhamento de parcerias',
+    description: 'Apoiamos a continuidade dos relacionamentos e o desenvolvimento dos projetos.',
+  },
 ]
+const serviceNames = services.map((service) => service.title)
 
 const siteUrl = useRequestURL().origin
 const pageUrl = `${siteUrl}/conexao-empresarial-estrategica/consultoria`
@@ -211,12 +210,12 @@ useHead({
       <section class="page-section page-section--intro" aria-labelledby="intro-title">
         <h2 id="intro-title">Consultoria estratégica para negócios entre Brasil e China</h2>
         <p class="page-section__lead">
-          Há mais de 20 anos atuamos como ponte entre empresas brasileiras e chinesas. Nesse período,
-          construímos uma rede sólida de relacionamentos, aprendemos a ler as particularidades culturais
-          de cada lado e acompanhamos de perto negociações que se transformaram em parcerias duradouras.
-          É essa experiência prática, vivida nos dois países, que colocamos a serviço de empresas e
-          instituições que desejam fazer negócios com a China com segurança e clareza de propósito.
+          Oferecemos consultoria para empresas e instituições que querem fazer negócios com a China:
+          apoio na busca de parceiros, no desenvolvimento de relacionamentos e nas negociações entre os
+          dois países. Unimos experiência prática no Brasil e na China, conhecimento intercultural e uma
+          rede de contatos construída ao longo de mais de 20 anos.
         </p>
+        <NuxtLink to="/contato" class="page-section__cta">Converse sobre seu projeto</NuxtLink>
       </section>
 
       <!-- 2. Métricas -->
@@ -228,8 +227,7 @@ useHead({
             <span class="metrics-banner__text">Anos de Experiência</span>
           </li>
           <li class="metrics-banner__item">
-            <span class="metrics-banner__number">02</span>
-            <span class="metrics-banner__text">Escritórios (BR e CN)</span>
+            <span class="metrics-banner__text">atuação no Brasil e na China</span>
           </li>
         </ul>
       </section>
@@ -239,83 +237,13 @@ useHead({
         <p class="text-caption">Serviços</p>
         <h2 id="services-title">Como apoiamos a sua empresa</h2>
 
-        <ul class="services-grid">
-          <li class="services-grid__item">
-            <h3>
-              <svg class="services-grid__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
-              Desenvolvimento de contatos qualificados
-            </h3>
-            <p>
-              Na China, as portas costumam se abrir por meio de relações de confiança, o que os chineses
-              chamam de <em>guanxi</em>. Ao longo de duas décadas, cultivamos vínculos com empresários,
-              associações setoriais e órgãos governamentais nos dois países. Isso nos permite apresentar
-              a sua empresa às pessoas certas, com a credibilidade de quem já é conhecido e respeitado
-              nesse meio.
-            </p>
+        <ol class="services-grid">
+          <li v-for="(service, index) in services" :key="service.title" class="services-grid__item">
+            <span class="services-grid__number" aria-hidden="true">{{ String(index + 1).padStart(2, '0') }}</span>
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
           </li>
-          <li class="services-grid__item">
-            <h3>
-              <svg class="services-grid__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 3 4 7l4 4" /><path d="M4 7h16" /><path d="m16 21 4-4-4-4" /><path d="M20 17H4" /></svg>
-              Aproximação entre empresas brasileiras e chinesas
-            </h3>
-            <p>
-              Uma boa aproximação não depende de sorte, e sim de preparo. Ajudamos a estruturar o primeiro
-              contato, a definir como a sua empresa deve ser apresentada e a criar as condições para que a
-              conversa avance com interesse mútuo. Nosso papel é encurtar distâncias geográficas,
-              linguísticas e culturais para que o diálogo comece em bases sólidas.
-            </p>
-          </li>
-          <li class="services-grid__item">
-            <h3>
-              <svg class="services-grid__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
-              Identificação de parceiros estratégicos
-            </h3>
-            <p>
-              Encontrar um fornecedor, distribuidor, investidor ou sócio na China exige mais do que uma
-              busca em plataformas on-line. Mapeamos o mercado, avaliamos reputação, capacidade produtiva e
-              histórico de cada potencial parceiro e indicamos aqueles com real aderência aos seus
-              objetivos. A experiência acumulada nos ensinou a reconhecer sinais que, à distância, passam
-              despercebidos.
-            </p>
-          </li>
-          <li class="services-grid__item">
-            <h3>
-              <svg class="services-grid__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m11 17 2 2a1 1 0 1 0 3-3" /><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /><path d="m21 3 1 11h-2" /><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /><path d="M3 4h8" /></svg>
-              Apoio em negociações
-            </h3>
-            <p>
-              Negociar com empresas chinesas envolve ritmos, hierarquias e códigos próprios. Acompanhamos a
-              sua equipe na preparação, na condução e no fechamento das negociações, ajudando a interpretar
-              o que está sendo dito e também o que fica nas entrelinhas. O resultado são acordos mais
-              equilibrados e relações que se sustentam muito depois da assinatura do contrato.
-            </p>
-          </li>
-          <li class="services-grid__item">
-            <h3>
-              <svg class="services-grid__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 22h18" /><path d="M6 18v-7" /><path d="M10 18v-7" /><path d="M14 18v-7" /><path d="M18 18v-7" /><path d="M12 2 20 7H4z" /></svg>
-              Intermediação comercial e institucional
-            </h3>
-            <p>
-              Atuamos como interlocutores entre empresas, entidades de classe, câmaras de comércio e
-              instituições públicas do Brasil e da China. Essa intermediação dá agilidade aos processos,
-              evita ruídos de comunicação e confere ao seu projeto o respaldo institucional que, muitas
-              vezes, é decisivo para que ele avance.
-            </p>
-          </li>
-          <li class="services-grid__item">
-            <h3>
-              <svg class="services-grid__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
-              Ambiente de negócios e diferenças culturais
-            </h3>
-            <p>
-              Muitos projetos entre Brasil e China não fracassam por falta de oportunidade, mas por
-              desencontros culturais. Compartilhamos com a sua equipe o que aprendemos em mais de 20 anos
-              de convivência com o mercado chinês: como se constrói confiança, a etiqueta empresarial, a
-              dinâmica de tomada de decisão e o funcionamento do ambiente regulatório. É um conhecimento que
-              poupa tempo, recursos e equívocos.
-            </p>
-          </li>
-        </ul>
+        </ol>
       </section>
 
       <!-- 4. Como trabalhamos -->
@@ -334,27 +262,31 @@ useHead({
       <section class="page-section experience" aria-labelledby="cases-title">
         <p class="text-caption">Experiência</p>
         <h2 id="cases-title">Assessoria e Intercâmbio China–Brasil</h2>
-        <p class="page-section__lead">
-          O Centro Cultural China–Brasil Yuan Aiping (CCCB) oferece serviços de assessoria, consultoria e
-          intermediação nas áreas cultural, institucional, educacional e empresarial, promovendo a cooperação e
-          fortalecendo as relações entre o Brasil e a China.
-        </p>
+        <div class="experience__intro">
+          <p class="page-section__lead experience__lead">
+            O Centro Cultural China–Brasil Yuan Aiping (CCCB) oferece serviços de assessoria, consultoria e
+            intermediação nas áreas cultural, institucional, educacional e empresarial, promovendo a cooperação e
+            fortalecendo as relações entre o Brasil e a China.
+          </p>
 
-        <figure class="experience__figure">
-          <img
-            src="/img/consultoria/meeting01.avif"
-            alt="Yuan Aiping e comitiva brasileira reunidas com autoridades chinesas em encontro oficial na China"
-            class="experience__image"
-            width="1280"
-            height="853"
-            loading="lazy"
-            decoding="async"
-          />
-          <figcaption class="experience__caption">
-            Encontro oficial com autoridades chinesas: o CCCB acompanha delegações e missões entre os dois
-            países.
-          </figcaption>
-        </figure>
+          <!-- Registro histórico: a legenda data o evento para não sugerir parceria institucional vigente. -->
+          <figure class="experience__figure">
+            <img
+              src="/img/consultoria/meeting01.avif"
+              alt="Yuan Aiping em encontro institucional em Xangai durante a visita oficial da delegação do Rio de Janeiro à China, em novembro de 2017"
+              class="experience__image"
+              width="1280"
+              height="853"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="experience__caption">
+              <span class="experience__caption-meta">Novembro de 2017 | Xangai, China</span>
+              Encontro institucional durante a visita oficial da delegação do Rio de Janeiro à China, com
+              participação de Yuan Aiping.
+            </figcaption>
+          </figure>
+        </div>
 
         <ol class="experience__list">
           <li v-for="item in experienceItems" :key="item.title" class="experience__item">
@@ -412,15 +344,10 @@ useHead({
 
       <!-- 9. CTA -->
       <section class="cta-section" aria-labelledby="cta-title">
-        <h2 id="cta-title">Por que contar com a nossa consultoria</h2>
+        <h2 id="cta-title">Vamos conversar sobre seu projeto?</h2>
         <p>
-          Fazer negócios com a China é uma decisão estratégica que pede conhecimento de causa. Reunimos
-          mais de duas décadas de experiência, uma rede de contatos construída com tempo e cuidado e a
-          compreensão profunda de duas culturas empresariais muito distintas.
-        </p>
-        <p>
-          Se a sua empresa quer iniciar ou ampliar a presença no mercado chinês, ou atrair parceiros
-          chineses para o Brasil, estamos prontos para conversar.
+          Conte-nos sua necessidade de negócios entre Brasil e China. Vamos avaliar juntos o caminho mais
+          adequado.
         </p>
         <NuxtLink to="/contato" class="cta-section__button">Falar com um consultor</NuxtLink>
       </section>
@@ -428,6 +355,23 @@ useHead({
 </template>
 
 <style lang="scss" scoped>
+// Botão de CTA compartilhado pela introdução e pela seção final.
+%cta-button {
+  display: inline-block;
+  background-color: $red-900;
+  color: $white !important;
+  padding: $space-3 $space-8;
+  border-radius: $radius-pill;
+  font-weight: $weight-semibold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $red-950;
+    text-decoration: none;
+  }
+}
+
 .page-section {
   margin-bottom: $space-16;
 
@@ -452,6 +396,11 @@ useHead({
     margin-bottom: 0;
   }
 
+  &__cta {
+    @extend %cta-button;
+    margin-top: $space-8;
+  }
+
   &__subtitle {
     margin-top: $space-12;
     margin-bottom: $space-6;
@@ -465,12 +414,24 @@ useHead({
 }
 
 .experience {
+  // Texto à esquerda e foto reduzida (~40% da largura) à direita.
+  &__intro {
+    display: grid;
+    gap: $space-8;
+    margin-bottom: $space-10;
+
+    @include respond-to(md) {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      align-items: start;
+    }
+  }
+
+  & &__lead {
+    margin-bottom: 0;
+  }
+
   &__figure {
-    position: relative;
-    margin: 0 0 $space-10;
-    overflow: hidden;
-    border-radius: $radius-xl;
-    box-shadow: $shadow-card;
+    margin: 0;
   }
 
   &__image {
@@ -479,25 +440,26 @@ useHead({
     height: auto;
     aspect-ratio: 3 / 2;
     object-fit: cover;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-card;
   }
 
   &__caption {
-    padding: $space-4 $space-6;
-    background-color: $color-dark-section;
-    color: rgba($white, 0.85);
-    font-size: $font-size-body-sm;
+    margin-top: $space-3;
+    padding-left: $space-3;
+    border-left: 3px solid $gold-500;
+    color: $color-muted-text;
+    font-size: $font-size-caption;
     line-height: 1.5;
+  }
 
-    @include respond-to(md) {
-      position: absolute;
-      right: $space-6;
-      bottom: $space-6;
-      max-width: 340px;
-      border-left: 3px solid $gold-500;
-      border-radius: $radius-md;
-      background-color: rgba($red-950, 0.88);
-      backdrop-filter: blur(4px);
-    }
+  &__caption-meta {
+    display: block;
+    margin-bottom: $space-1;
+    color: $gold-700;
+    font-weight: $weight-semibold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   &__list {
@@ -562,6 +524,8 @@ useHead({
   display: grid;
   gap: $space-8;
   margin-top: $space-8;
+  padding: 0;
+  list-style: none;
 
   @include respond-to(md) {
     grid-template-columns: repeat(2, 1fr);
@@ -574,20 +538,20 @@ useHead({
     border-top: 4px solid $red-950;
 
     h3 {
-      display: flex;
-      align-items: center;
-      gap: $space-3;
       margin-bottom: $space-3;
       font-size: $font-size-heading-md;
       color: $color-heading-text;
     }
   }
 
-  &__icon {
-    width: 28px;
-    height: 28px;
+  &__number {
+    display: block;
+    margin-bottom: $space-2;
     color: $jade-600;
-    flex-shrink: 0;
+    font-family: $font-display;
+    font-size: $font-size-heading-md;
+    font-weight: $weight-semibold;
+    font-variant-numeric: tabular-nums;
   }
 }
 
@@ -664,19 +628,7 @@ useHead({
   }
 
   &__button {
-    display: inline-block;
-    background-color: $red-900;
-    color: $white !important;
-    padding: $space-3 $space-8;
-    border-radius: $radius-pill;
-    font-weight: $weight-semibold;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: $red-950;
-      text-decoration: none;
-    }
+    @extend %cta-button;
   }
 }
 </style>
