@@ -1,5 +1,29 @@
 <script setup lang="ts">
-import type { FaqItem, MethodStep, PartnerLogo } from '~/types/content'
+import type { FaqItem, Livro, MethodStep, PartnerLogo } from '~/types/content'
+import { WHATSAPP_URL } from '~/utils/contact'
+import livrosData from '~~/livros.json'
+
+// Capas reais da coleção (mesmas imagens da página de livros), uma de cada linha editorial.
+const featuredBookTitles = [
+  'Chinês para Brasileiros Vol. 1 com Áudio em MP3 (nível básico)',
+  'Português para Chineses Vol. 1',
+  'Como Dizer Tudo em Chinês nos Negócios',
+  'Chinês para Crianças',
+]
+const featuredBooks = featuredBookTitles
+  .map((title) => (livrosData as Livro[]).find((livro) => livro.titulo.startsWith(title)))
+  .filter((livro): livro is Livro => Boolean(livro))
+
+// CONTEÚDO PENDENTE: preencher com os dados exatos do documento de reconhecimento oficial
+// (nome da distinção, órgão responsável, ano) e a foto real da placa, troféu ou certificado.
+// Enquanto for null, o bloco não é exibido. Não ampliar a denominação além do que está escrito.
+const officialRecognition: {
+  name: string
+  issuer: string
+  year: number
+  image: string
+  imageAlt: string
+} | null = null
 
 definePageMeta({
   layout: 'sections',
@@ -68,7 +92,7 @@ const tracks: Track[] = [
     audience: 'Para empresas brasileiras',
     title: 'Mandarim e cultura de negócios chinesa para executivos brasileiros',
     description:
-      'Para diretores, gerentes e lideranças que negociam com fornecedores, clientes, sócios ou investidores chineses, ou que estão prestes a embarcar para a China.',
+      'Reuniões, apresentações, negociações, etiqueta empresarial e preparação para viagens e missões profissionais à China.',
     points: [
       'Mandarim para reuniões, apresentações, negociações e jantares de negócios',
       'Hierarquia, guanxi e etiqueta empresarial chinesa',
@@ -82,7 +106,7 @@ const tracks: Track[] = [
     audience: 'Para empresas chinesas no Brasil',
     title: 'Português e cultura de negócios brasileira para executivos chineses',
     description:
-      'Para executivos expatriados e lideranças de multinacionais chinesas que precisam conduzir equipes, atender clientes e se relacionar com parceiros e órgãos públicos no Brasil.',
+      'Comunicação com equipes locais, clientes, fornecedores e órgãos públicos; liderança intercultural e integração ao ambiente de negócios brasileiro.',
     points: [
       'Português do Brasil para o dia a dia do escritório e para reuniões',
       'Como liderar equipes brasileiras e entender o jeito brasileiro de trabalhar',
@@ -95,41 +119,39 @@ const tracks: Track[] = [
 
 const benefits: IconItem[] = [
   {
-    title: 'Conteúdo para a agenda do executivo',
-    description:
-      'Nada de decorar frases soltas. O executivo aprende o que vai usar de verdade: abrir uma reunião, apresentar a empresa, conduzir uma negociação, liderar uma equipe e manter a conversa no jantar de negócios.',
+    title: 'Comunicação aplicada aos negócios',
+    description: 'Reuniões, apresentações, negociações e situações reais da rotina corporativa.',
     icon: icons.briefcase,
   },
   {
     title: 'Cultura e etiqueta empresarial',
     description:
-      'Saber o que dizer é metade do caminho; a outra metade é saber como agir. Trabalhamos os códigos de cada lado: a hierarquia e o guanxi chineses, a informalidade e o relacionamento próximo dos brasileiros.',
+      'Contexto cultural, relacionamento profissional e formas de comunicação em ambos os países.',
     icon: icons.handshake,
   },
   {
     title: 'Programa sob medida',
     description:
-      'O conteúdo parte do setor da empresa, do cargo de cada participante e do objetivo do projeto, seja uma viagem marcada para daqui a três meses, seja uma operação de longo prazo no outro país.',
+      'Conteúdo adaptado ao setor, ao cargo, ao nível dos participantes e aos objetivos da empresa.',
     icon: icons.target,
   },
   {
-    title: 'Material didático próprio',
-    description:
-      'Usamos a nossa coleção de 14 livros e 5 CDs, com títulos de mandarim para quem fala português e de português do Brasil para chineses, criados a partir das dificuldades reais de cada aluno.',
+    title: 'Material de autoria própria',
+    description: 'Coleção de 20 livros desenvolvidos pela instituição, com materiais digitais de apoio.',
     icon: icons.book,
     link: { to: booksRoute, label: 'Conheça o material didático' },
   },
   {
-    title: 'Agenda que respeita a rotina',
+    title: 'Flexibilidade de formato',
     description:
-      'As aulas acontecem nas instalações da sua empresa, no horário que cabe na agenda da diretoria e do time. Menos deslocamento, mais constância e resultados que aparecem no trabalho.',
+      'Aulas individuais ou em grupos, com formatos e horários alinhados às necessidades da empresa.',
     icon: icons.calendar,
   },
   {
-    title: 'Professores que conhecem os dois lados',
+    title: 'Experiência Brasil–China',
     description:
-      'Nossa equipe vive a relação entre Brasil e China há mais de duas décadas. Por isso, ensina o idioma junto com o contexto: o que esperar de cada reunião e como evitar os mal-entendidos mais comuns.',
-    icon: icons.users,
+      'Mais de duas décadas dedicadas à formação linguística e à integração cultural de profissionais.',
+    icon: icons.globe,
   },
 ]
 
@@ -248,7 +270,7 @@ const faqItems: FaqItem[] = [
   {
     question: 'Qual material didático é usado no treinamento?',
     answer:
-      'Usamos a coleção própria do Centro Cultural China-Brasil, com 14 livros e 5 CDs, que inclui títulos de mandarim para falantes de português e de português do Brasil para chineses. O material pode ser conhecido em detalhes na página Livros e Publicações do site.',
+      'Usamos a coleção de autoria própria do Centro Cultural China-Brasil, com 20 livros didáticos e materiais digitais de apoio, que inclui títulos de mandarim para falantes de português e de português do Brasil para chineses. O material pode ser conhecido em detalhes na página Livros e Publicações do site.',
   },
   {
     question: 'Como contratar o treinamento in company para executivos?',
@@ -341,45 +363,51 @@ useHead({
 </script>
 
 <template>
-  <SectionTitle title="Treinamento de Executivos In Company" img="/img/incompany/incompanyheader.avif" />
+  <SectionTitle title="Treinamento In Company para Executivos" img="/img/incompany/incompanyheader.avif" />
   <TextContent>
     <!-- 1. Introdução: o primeiro parágrafo responde diretamente "o que é" e "para quem é" (AEO). -->
     <section class="page-section page-section--intro" aria-labelledby="intro-title">
       <p class="text-caption">Treinamento corporativo Brasil–China</p>
       <h2 id="intro-title">
-        Treinamento in company para executivos: mandarim para brasileiros, português para chineses
+        Conectando negócios entre Brasil e China por meio da língua e da cultura
       </h2>
       <p class="page-section__lead">
-        O <strong>treinamento in company para executivos</strong> do Centro Cultural China-Brasil Yuan Aiping
-        leva idioma e cultura de negócios para dentro da sua empresa, nos dois sentidos da ponte. Empresas
-        brasileiras preparam seus executivos em <strong>mandarim e cultura empresarial chinesa</strong>.
-        Empresas chinesas no Brasil capacitam suas lideranças em
-        <strong>português do Brasil e cultura de trabalho brasileira</strong>.
+        Preparamos líderes e equipes de empresas brasileiras e chinesas para se comunicarem com confiança, compreenderem diferenças culturais e atuarem com mais eficácia em ambientes de negócios internacionais.
       </p>
-      <p class="page-section__lead">
-        Há <strong>mais de 20 anos</strong> preparamos diretores, gerentes e executivos de algumas das
-        <strong>principais empresas do país</strong>, e de multinacionais chinesas que escolheram o Brasil
-        para crescer. Sabemos que a agenda de um executivo não tem espaço para desperdício: cada aula é
-        pensada para virar prática já na próxima reunião, negociação ou viagem.
-      </p>
+
+      <div class="intro-actions">
+        <NuxtLink to="/contato" class="intro-actions__primary" data-cy="intro-cta-proposta">
+          Solicitar uma proposta
+        </NuxtLink>
+        <a
+          :href="WHATSAPP_URL"
+          class="intro-actions__secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cy="intro-cta-whatsapp"
+        >
+          <WhatsAppIcon class="intro-actions__icon" />
+          Conversar pelo WhatsApp
+        </a>
+      </div>
     </section>
 
     <!-- 2. Números -->
     <section aria-label="Nossa experiência em números">
       <ul class="metrics-banner">
         <li class="metrics-banner__item">
-          <span class="metrics-banner__number">+20</span>
-          <span class="metrics-banner__text">Anos treinando executivos</span>
+          <span class="metrics-banner__number">+20 anos</span>
+          <span class="metrics-banner__text">de experiência em treinamento corporativo</span>
         </li>
         <li class="metrics-banner__item">
           <NuxtLink :to="booksRoute" class="metrics-banner__link">
-            <span class="metrics-banner__number">14</span>
-            <span class="metrics-banner__text">Livros didáticos próprios</span>
+            <span class="metrics-banner__number">20 livros</span>
+            <span class="metrics-banner__text">didáticos de autoria própria</span>
           </NuxtLink>
         </li>
         <li class="metrics-banner__item">
-          <span class="metrics-banner__number">02</span>
-          <span class="metrics-banner__text">Filiais na China</span>
+          <span class="metrics-banner__number">Reconhecimento oficial</span>
+          <span class="metrics-banner__text">como instituição de referência no ensino de chinês na China*</span>
         </li>
       </ul>
     </section>
@@ -441,26 +469,13 @@ useHead({
       <p class="text-caption">Por que investir</p>
       <h2 id="why-title">Executivos que falam a língua do parceiro saem na frente</h2>
       <p class="page-section__lead">
-        A China é o maior parceiro comercial do Brasil, mas os bons negócios não nascem apenas de uma
-        planilha de preços. Eles nascem da confiança. Quando um executivo brasileiro cumprimenta, se
-        apresenta e conduz parte da conversa em mandarim, a mensagem que chega do outro lado é clara:
-        <em>esta empresa leva a parceria a sério</em>.
-      </p>
-      <p class="page-section__lead">
-        O mesmo vale no caminho inverso. Um executivo chinês que fala português e entende o jeito
-        brasileiro de trabalhar lidera melhor a equipe local, ganha a confiança de clientes e parceiros e
-        resolve com mais rapidez o que antes dependia de intermediários.
-      </p>
-      <p class="page-section__lead">
-        Em ambos os casos, muitos impasses não vêm do idioma, e sim de códigos culturais que passam
-        despercebidos: a hierarquia na mesa, o tempo de cada decisão, o que é dito e o que fica implícito.
-        Nosso treinamento prepara os seus executivos para os dois desafios.
+        A comunicação eficaz entre Brasil e China vai além da tradução. Compreender o idioma, os hábitos profissionais e os códigos culturais ajuda a reduzir mal-entendidos, fortalecer relacionamentos e tornar reuniões e negociações mais produtivas. Nosso treinamento transforma essas necessidades em situações práticas do dia a dia executivo.
       </p>
     </section>
 
     <!-- 5. O que o treinamento oferece -->
     <section class="page-section" aria-labelledby="benefits-title">
-      <p class="text-caption">O que a sua empresa recebe</p>
+      <p class="text-caption">Os diferenciais do programa</p>
       <h2 id="benefits-title">Um treinamento feito para a realidade do executivo</h2>
       <ul class="services-grid">
         <li v-for="item in benefits" :key="item.title" class="services-grid__item">
@@ -499,15 +514,56 @@ useHead({
       </ul>
     </section>
 
+    <!-- 5b. Material didático e reconhecimento -->
+    <section class="page-section" aria-labelledby="materials-title">
+      <h2 id="materials-title">Material didático próprio</h2>
+
+      <div class="materials">
+        <div class="materials__text">
+          <h3 class="materials__title">
+            Material didático <mark class="materials__highlight">de autoria própria</mark>
+          </h3>
+          <p>
+            Nossa instituição desenvolveu 20 livros didáticos próprios, concebidos a partir da experiência
+            no ensino de idiomas e das necessidades reais de alunos e profissionais que atuam entre Brasil e
+            China. A coleção é complementada por materiais digitais de apoio.
+          </p>
+          <NuxtLink :to="booksRoute" class="text-link">
+            Conheça a coleção
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+            </svg>
+          </NuxtLink>
+        </div>
+
+        <ul class="materials__covers" aria-label="Capas de livros da coleção">
+          <li v-for="livro in featuredBooks" :key="livro.titulo" class="materials__cover">
+            <img
+              :src="livro.image_path"
+              :alt="`Capa do livro ${livro.titulo}`"
+              loading="lazy"
+              decoding="async"
+            />
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <!-- 6. Autoridade -->
     <section class="page-section" aria-labelledby="trust-title">
       <p class="text-caption">Quem confia no nosso trabalho</p>
-      <h2 id="trust-title">Mais de duas décadas ao lado das principais empresas do país</h2>
+      <h2 id="trust-title">Empresas e instituições que fazem parte da nossa trajetória</h2>
       <p class="page-section__lead">
-        Desde 2004, grandes nomes da energia, da mineração, do sistema financeiro, da comunicação, do varejo
-        de luxo e da tecnologia confiaram no Centro Cultural China-Brasil para preparar seus executivos. E,
-        do outro lado da ponte, multinacionais chinesas contaram conosco para ensinar português e cultura
-        brasileira às suas lideranças no país.
+        Ao longo de mais de duas décadas, tivemos a oportunidade de contribuir para a formação linguística e intercultural de profissionais de empresas e instituições de referência no Brasil e na China. Conheça algumas das organizações presentes em nossa trajetória.
       </p>
 
       <h3 class="page-section__subtitle">Empresas e instituições brasileiras</h3>
@@ -591,18 +647,164 @@ useHead({
 
     <!-- 11. CTA -->
     <section class="cta-section" aria-labelledby="cta-title" data-cy="incompany-cta">
-      <h2 id="cta-title">Vamos preparar os seus executivos para o próximo negócio entre Brasil e China?</h2>
+      <h2 id="cta-title">Sua equipe está preparada para se comunicar e fazer negócios entre Brasil e China? </h2>
       <p>
-        Mandarim para a sua liderança brasileira ou português para os seus executivos chineses: conte para a
-        gente o que a sua empresa precisa. Em uma conversa rápida, entendemos o objetivo e montamos uma
-        proposta de treinamento feita sob medida.
+        Conte-nos os objetivos da sua empresa e receba uma proposta de treinamento personalizada.
       </p>
-      <NuxtLink to="/contato" class="cta-section__button">Solicitar proposta</NuxtLink>
+      <div class="cta-section__actions">
+        <NuxtLink to="/contato" class="cta-section__button">Solicitar proposta</NuxtLink>
+        <a
+          :href="WHATSAPP_URL"
+          class="cta-section__whatsapp"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cy="cta-whatsapp"
+        >
+          <WhatsAppIcon class="cta-section__icon" />
+          Falar com nossa equipe no WhatsApp
+        </a>
+      </div>
     </section>
   </TextContent>
 </template>
 
 <style lang="scss" scoped>
+// Material didático: texto à esquerda, capas reais à direita.
+.materials {
+  display: grid;
+  gap: $space-8;
+  margin-top: $space-8;
+
+  @include respond-to(md) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: $space-12;
+  }
+
+  // Especificidade extra para sobrepor o :deep(h3) do TextContent.
+  & &__title {
+    margin: 0 0 $space-4;
+    color: $color-heading-text;
+    font-size: $font-size-heading-md;
+    line-height: 1.3;
+  }
+
+  &__highlight {
+    padding: 0 0.15em;
+    background: linear-gradient(transparent 60%, rgba($gold-500, 0.35) 60%);
+    color: inherit;
+  }
+
+  &__text p {
+    margin-bottom: $space-5;
+  }
+
+  &__covers {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: $space-4;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  &__cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    padding: $space-2;
+    background-color: $white;
+    border: $border-subtle;
+    border-radius: $radius-md;
+    box-shadow: $shadow-soft;
+  }
+}
+
+// Reconhecimento oficial: foto real do documento/placa + dados exatos.
+.recognition {
+  display: grid;
+  gap: $space-6;
+  margin-top: $space-12;
+  padding: $space-6;
+  background-color: $white;
+  border: $border-subtle;
+  border-left: 4px solid $color-highlight;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-soft;
+
+  @include respond-to(md) {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: center;
+    padding: $space-8;
+  }
+
+  &__figure {
+    margin: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: $radius-md;
+    }
+  }
+
+  &__name {
+    margin-bottom: $space-2;
+    color: $color-heading-text;
+    font-family: $font-display;
+    font-size: $font-size-body-lg;
+  }
+
+  &__meta {
+    color: $color-muted-text;
+    font-size: $font-size-body-sm;
+  }
+}
+
+// CTAs da introdução: proposta (principal) e WhatsApp (secundário).
+.intro-actions {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  margin-top: $space-8;
+
+  @include respond-to(sm) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $space-4;
+  }
+
+  &__primary {
+    @include button-primary;
+  }
+
+  &__secondary {
+    @include button-secondary;
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+}
+
 .page-section {
   margin-bottom: $space-16;
 
@@ -727,13 +929,13 @@ useHead({
   &__number {
     margin-bottom: $space-2;
     font-family: $font-display;
-    font-size: 2.6rem;
+    font-size: 2.08rem; // 2.6rem − 20%
     line-height: 1;
     color: $gold-500;
   }
 
   &__text {
-    font-size: $font-size-body-sm;
+    font-size: $font-size-body-sm * 0.8;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.72);
@@ -925,8 +1127,41 @@ useHead({
     color: rgba(255, 255, 255, 0.8);
   }
 
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+
+    @include respond-to(sm) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: $space-4;
+    }
+  }
+
   &__button {
     @include button-accent;
+  }
+
+  // Secundário: contorno branco sobre o fundo escuro, para não competir com a proposta.
+  &__whatsapp {
+    @include button-base;
+    background-color: transparent;
+    border: 1px solid rgba($white, 0.7);
+    color: $white;
+
+    &:hover,
+    &:focus-visible {
+      background-color: $white;
+      color: $color-dark-section;
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
   }
 }
 </style>
