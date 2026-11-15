@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { desktopNavLinks, legalLinks } from '~/utils/navigation'
+import { CONTACT_EMAIL, WHATSAPP_PHONE, WHATSAPP_URL } from '~/utils/contact'
 </script>
 
 <template>
@@ -35,6 +36,48 @@ import { desktopNavLinks, legalLinks } from '~/utils/navigation'
             </li>
           </ul>
         </nav>
+      </div>
+
+      <div class="app-footer__col">
+        <h3 class="app-footer__heading">Contato</h3>
+        <ul class="app-footer__list app-footer__list--contact">
+          <li>
+            <a
+              :href="WHATSAPP_URL"
+              class="app-footer__link app-footer__contact"
+              target="_blank"
+              rel="noopener noreferrer"
+              :aria-label="`WhatsApp: ${WHATSAPP_PHONE}`"
+              data-cy="footer-whatsapp"
+            >
+              <WhatsAppIcon class="app-footer__icon" />
+              {{ WHATSAPP_PHONE }}
+            </a>
+          </li>
+          <li>
+            <a
+              :href="`mailto:${CONTACT_EMAIL}`"
+              class="app-footer__link app-footer__contact"
+              data-cy="footer-email"
+            >
+              <svg
+                class="app-footer__icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+              {{ CONTACT_EMAIL }}
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="app-footer__copy">
@@ -111,6 +154,24 @@ import { desktopNavLinks, legalLinks } from '~/utils/navigation'
       text-decoration: underline;
     }
   }
+  &__list--contact {
+    gap: $space-3;
+  }
+
+  // Itens de contato em branco (texto e ícone), como pedido para a coluna.
+  &__contact {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    color: $white;
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
   &__copy {
     border-top: color.mix($red-600, $black, 50%) 1px solid;
     background-color: color.mix($red-950, $black, 50%);

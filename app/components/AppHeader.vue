@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { desktopNavLinks, navigationMenu } from '~/utils/navigation'
+import { WHATSAPP_PHONE, WHATSAPP_URL } from '~/utils/contact'
 
 const isNavOpen = ref(false)
 const isHydrated = ref(false)
@@ -47,6 +48,19 @@ onUnmounted(() => {
             <NuxtLink :to="link.to" class="app-header__desktop-nav-link" data-cy="desktop-nav-link">{{
               link.label
             }}</NuxtLink>
+          </li>
+          <li>
+            <a
+              :href="WHATSAPP_URL"
+              class="app-header__whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+              :aria-label="`Fale conosco pelo WhatsApp: ${WHATSAPP_PHONE}`"
+              :title="`WhatsApp ${WHATSAPP_PHONE}`"
+              data-cy="header-whatsapp"
+            >
+              <WhatsAppIcon class="app-header__whatsapp-icon" />
+            </a>
           </li>
         </ul>
       </nav>
@@ -178,6 +192,43 @@ onUnmounted(() => {
     &.router-link-active {
       color: $color-primary-action;
     }
+  }
+
+  // Atalho do WhatsApp: círculo no verde da marca, com ícone branco.
+  &__whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #25d366;
+    color: $white;
+    box-shadow: 0 4px 12px rgba(#25d366, 0.35);
+    transition: background-color $duration-normal $easing-brand,
+      transform $duration-normal $easing-brand;
+
+    @include focus-ring;
+
+    &:hover,
+    &:focus-visible {
+      background-color: #1ebe5d;
+      transform: scale(1.06);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+
+      &:hover,
+      &:focus-visible {
+        transform: none;
+      }
+    }
+  }
+
+  &__whatsapp-icon {
+    width: 24px;
+    height: 24px;
   }
 
   &__toggle-bar {

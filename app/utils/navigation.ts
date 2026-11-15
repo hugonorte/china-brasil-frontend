@@ -15,7 +15,7 @@ export interface NavLink {
  * disponível no slideover mobile via `navigationMenu`.
  */
 export const desktopNavLinks: NavLink[] = [
-  { label: 'Home', to: '/' },
+  { label: 'Início', to: '/' },
   { label: 'In Company', to: '/conexao-empresarial-estrategica/treinamento-executivos' },
   { label: 'Consultoria', to: '/conexao-empresarial-estrategica/consultoria' },
   { label: 'Livros', to: '/livros-e-publicacoes' },
