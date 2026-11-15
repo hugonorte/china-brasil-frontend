@@ -4,13 +4,27 @@ import type { FaqItem } from '~/types/content'
 defineProps<{
   items: FaqItem[]
 }>()
+
+// Divide a resposta em antes/trecho do link/depois; sem link (ou trecho ausente), devolve null.
+const splitAnswer = (item: FaqItem) => {
+  if (!item.link) return null
+  const index = item.answer.indexOf(item.link.text)
+  if (index === -1) return null
+  return {
+    before: item.answer.slice(0, index),
+    after: item.answer.slice(index + item.link.text.length),
+  }
+}
 </script>
 
 <template>
   <div class="faq-list">
     <details v-for="item in items" :key="item.question" class="faq-list__item">
       <summary class="faq-list__question">{{ item.question }}</summary>
-      <p class="faq-list__answer">{{ item.answer }}</p>
+      <p v-if="item.link && splitAnswer(item)" class="faq-list__answer">
+        {{ splitAnswer(item)!.before }}<NuxtLink :to="item.link.to" class="faq-list__link">{{ item.link.text }}</NuxtLink>{{ splitAnswer(item)!.after }}
+      </p>
+      <p v-else class="faq-list__answer">{{ item.answer }}</p>
     </details>
   </div>
 </template>
@@ -58,6 +72,17 @@ defineProps<{
   &__answer {
     padding-bottom: $space-5;
     color: $color-muted-text;
+  }
+
+  &__link {
+    color: $color-primary-action;
+    font-weight: $weight-medium;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:hover {
+      color: $color-primary-action-hover;
+    }
   }
 }
 </style>

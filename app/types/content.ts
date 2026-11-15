@@ -54,4 +54,6 @@ export interface Livro {
 export interface FaqItem {
   question: string
   answer: string
+  /** Transforma o trecho `text` da resposta em link para a rota `to`. */
+  link?: { text: string, to: string }
 }
