@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
+import { WHATSAPP_PHONE, WHATSAPP_URL } from '~/utils/contact'
 
 definePageMeta({
   layout: 'sections',
@@ -78,7 +79,6 @@ const onSubmit = handleSubmit(async (values) => {
 
 <template>
   <div class="contact-page">
-    <SectionTitle title="Contato" img="/img/consultoria/consultoria.avif" />
 
     <section class="contact">
       <div class="contact__inner">
@@ -86,8 +86,22 @@ const onSubmit = handleSubmit(async (values) => {
           <span class="contact__eyebrow">Fale conosco</span>
           <h2 class="contact__heading">Vamos conversar sobre o seu próximo passo entre China e Brasil.</h2>
           <p class="contact__text">
-            Preencha o formulário e nossa equipe retornará o contato pelo e-mail informado.
+            Entre em contato conosco pelo nosso WhatsApp, pelo e-mail <a href="mailto:contato@chinabrasil.com">contato@chinabrasil.com</a> ou envie-nos uma mensagem preenchendo o formulário de contato nessa página.
           </p>
+
+          <div class="contact__whatsapp">
+            <h3 class="contact__whatsapp-title">Entre em contato pelo nosso WhatsApp</h3>
+            <a
+              class="contact__whatsapp-button"
+              :href="WHATSAPP_URL"
+              target="_blank"
+              rel="noopener noreferrer"
+              :aria-label="`Fale conosco pelo WhatsApp: ${WHATSAPP_PHONE}`"
+            >
+              <WhatsAppIcon />
+              {{ WHATSAPP_PHONE }}
+            </a>
+          </div>
         </div>
 
         <form class="contact-form" novalidate @submit="onSubmit">
@@ -277,6 +291,43 @@ const onSubmit = handleSubmit(async (values) => {
     color: $color-muted-text;
     font-size: $font-size-body-lg;
     line-height: 1.6;
+  }
+
+  &__whatsapp {
+    margin-top: $space-6;
+    padding: $space-6;
+    background-color: $white;
+    border: $border-subtle;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-soft;
+  }
+
+  &__whatsapp-title {
+    margin-bottom: $space-4;
+    color: $color-heading-text;
+    font-family: $font-display;
+    font-size: $font-size-body-lg;
+    line-height: 1.3;
+  }
+
+  &__whatsapp-button {
+    @include button-base;
+    width: 100%;
+    font-size: $font-size-button * 1.2;
+    // Verde do WhatsApp escurecido para manter contraste AA com texto branco.
+    background-color: #0e7c66;
+    color: $white;
+
+    &:hover,
+    &:focus-visible {
+      background-color: #075e54;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
   }
 }
 
