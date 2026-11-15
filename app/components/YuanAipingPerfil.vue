@@ -162,7 +162,7 @@ useHead({
         </figure>
 
         <div class="perfil-yuan__content">
-          <p class="perfil-yuan__eyebrow">Quem é a fundadora</p>
+          <p class="perfil-yuan__eyebrow">Nossa fundadora</p>
           <h2 id="perfil-yuan-title" class="perfil-yuan__title">
             Yuan Aiping
             <span class="perfil-yuan__title-zh" lang="zh-Hans">袁爱平</span>
@@ -342,10 +342,11 @@ useHead({
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 5;
+    // Proporção nativa da foto (949x852): um recorte vertical (4:5) cortava
+    // os ombros ou as bandeiras do Brasil e da China.
+    aspect-ratio: 949 / 852;
     object-fit: cover;
-    // Mantém o rosto e as bandeiras do Brasil e da China no recorte.
-    object-position: 100% center;
+    object-position: center;
     border-radius: $radius-xl;
     box-shadow: $shadow-card;
   }

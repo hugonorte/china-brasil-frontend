@@ -37,18 +37,31 @@ const icons = {
 
 // Os títulos das duas listas alimentam o JSON-LD (OfferCatalog): mantenha visível e estruturado iguais.
 // Serviços principais: consultoria e facilitação de negócios, exibidos em destaque.
-const featuredServices: IconItem[] = [
+interface FeaturedService extends IconItem {
+  link: { to: string, label: string }
+}
+
+const featuredServices: FeaturedService[] = [
   {
-    title: 'Intermediação comercial',
+    title: 'Ensino de idiomas',
     description:
-      'Aproximamos a sua empresa de fornecedores, distribuidores, investidores e instituições chinesas e fazemos a interlocução com quem conhece as duas culturas de dentro. Isso dá agilidade ao processo, evita ruídos de comunicação e confere ao seu projeto o respaldo de uma rede de relacionamentos construída ao longo de mais de 20 anos.',
-    icon: icons.handshake,
+      'Programas de aprendizagem de mandarim e português, com soluções In Companyy para estudantes e empresas.',
+    icon: icons.languages,
+    link: { to: '/contato', label: 'Fale conosco' },
   },
   {
-    title: 'Assessoria em importação e exportação',
+    title: 'Materiais didáticos',
     description:
-      'Apoiamos empresas que querem comprar ou vender entre Brasil e China, da identificação e avaliação de parceiros à negociação e ao acompanhamento de cada etapa da operação. Você conta com orientação clara para tomar decisões com segurança, sem depender apenas de plataformas on-line.',
-    icon: icons.ship,
+      'Livros e recursos desenvolvidos para apoiar uma aprendizagem prática e consistente.',
+    icon: icons.book,
+    link: { to: '/livros-e-publicacoes', label: 'Conheça os livros' },
+  },
+  {
+    title: 'Consultoria Brasil–China',
+    description:
+      'Apoio à comunicação intercultural e à construção de conexões empresariais entre os dois países.',
+    icon: icons.handshake,
+    link: { to: '/conexao-empresarial-estrategica/consultoria', label: 'Conheça a consultoria' },
   },
 ]
 
@@ -230,17 +243,14 @@ useHead({
 </script>
 
 <template>
-  <SectionTitle title="Sobre o Centro Cultural China-Brasil" img="/img/consultoria/consultoria.avif" />
+  <SectionTitle title="Sobre o Centro Cultural China-Brasil" img="/img/sobre/leque.avif" />
   <TextContent>
     <!-- 1. Introdução -->
     <section class="page-section page-section--intro" aria-labelledby="intro-title">
-      <p class="text-caption">Desde 2004</p>
+      <p class="text-caption">Há mais de duas décadas conectando idiomas, culturas e oportunidades entre o Brasil e a China</p>
       <h2 id="intro-title">Uma ponte viva entre o Brasil e a China</h2>
       <p class="page-section__lead">
-        O <strong>Centro Cultural China-Brasil Yuan Aiping</strong> nasceu em fevereiro de 2004, no centro
-        do Rio de Janeiro, pelas mãos da professora Yuan Aiping. A ideia era simples e ambiciosa ao mesmo
-        tempo: aproximar dois povos que vivem a meio mundo de distância. Mais de duas décadas depois, a
-        ponte cresceu e ganhou filiais no Brasil e na China, incluindo Pequim e Xangai.
+        Fundado em 2004, no Rio de Janeiro, pela professora e autora Yuan Aiping, o Centro Cultural China-Brasil promove o ensino de idiomas, a produção de materiais didáticos e o intercâmbio cultural e empresarial. Nosso propósito é aproximar pessoas e organizações, transformando o conhecimento em conexões duradouras entre os dois países.
       </p>
       <p class="page-section__lead">
         Somos especialistas no ensino de <strong>mandarim para brasileiros</strong> e de
@@ -272,10 +282,7 @@ useHead({
       <p class="text-caption">Propósito</p>
       <h2 id="purpose-title">Mais do que ensinar um idioma, aproximar duas culturas</h2>
       <p class="page-section__lead">
-        Nosso compromisso é difundir as culturas brasileira e chinesa, acelerar o intercâmbio cultural e
-        tecnológico e fortalecer as relações comerciais entre os dois países. Com o peso crescente da China
-        na economia mundial, cada vez mais profissionais querem aprender mandarim e entender de verdade os
-        hábitos e a cultura chinesa. Foi para atender essa demanda que o Centro Cultural surgiu.
+        Promover o aprendizado de idiomas e a compreensão intercultural, contribuindo para o diálogo, a educação e o fortalecimento das relações entre brasileiros e chineses.
       </p>
       <TestimonialCard :testimonial="founderQuote" />
     </section>
@@ -284,7 +291,7 @@ useHead({
     <YuanAipingPerfil />
 
      <!-- 5. Missão, visão e valores -->
-    <section class="page-section" aria-labelledby="pillars-title">
+    <!-- <section class="page-section" aria-labelledby="pillars-title">
       <p class="text-caption">Quem somos</p>
       <h2 id="pillars-title">Missão, visão e valores</h2>
       <ul class="pillars">
@@ -305,13 +312,13 @@ useHead({
           <p class="pillars__text">{{ pillar.description }}</p>
         </li>
       </ul>
-    </section>
+    </section> -->
 
 
 
    
     <!-- 7. Consultoria em três níveis -->
-    <section class="page-section" aria-labelledby="initiatives-title">
+    <!-- <section class="page-section" aria-labelledby="initiatives-title">
       <p class="text-caption">Conexão empresarial</p>
       <h2 id="initiatives-title">Do planejamento à operação: seus negócios com a China</h2>
       <p class="page-section__lead">
@@ -321,11 +328,11 @@ useHead({
         dia da parceria.
       </p>
       <MethodTimeline :steps="initiatives" />
-    </section>
+    </section> -->
 
     <!-- 4. Serviços -->
     <section class="page-section" aria-labelledby="services-title">
-      <p class="text-caption">O que fazemos</p>
+      <p class="text-caption">Áreas de atuação</p>
       <h2 id="services-title">Facilitamos os seus negócios com a China</h2>
       <p class="page-section__lead">
         Nosso foco é ajudar empresas brasileiras a encontrar, negociar e manter parcerias sólidas com
@@ -349,8 +356,8 @@ useHead({
           </span>
           <h3 class="featured-services__title">{{ service.title }}</h3>
           <p class="featured-services__text">{{ service.description }}</p>
-          <NuxtLink to="/conexao-empresarial-estrategica/consultoria" class="featured-services__link">
-            Conheça a consultoria
+          <NuxtLink :to="service.link.to" class="featured-services__link">
+            {{ service.link.label }}
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -439,8 +446,8 @@ useHead({
   display: grid;
   gap: $space-6;
 
-  @include respond-to(md) {
-    grid-template-columns: repeat(2, 1fr);
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   &__item {
